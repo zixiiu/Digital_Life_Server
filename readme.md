@@ -17,12 +17,13 @@ git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
     ```
 3. Build `monotonic_align`
    ```bash
-   cd TTS/vits/monotonic_align
-   midir monotonic_align
+   cd "TTS/vits/monotonic_align"
+   mkdir monotonic_align
    python setup.py build_ext --inplace
    cp monotonic_align/*.pyd .
    ```
-4. Download models from zoo:  
+4. Download models   
+   [百度网盘](https://pan.baidu.com/s/1EnHDPADNdhDl71x_DHeElg?pwd=75gr)
    ASR Model:   
    to `/ASR/resources/models`  
    Sentiment Model:  
