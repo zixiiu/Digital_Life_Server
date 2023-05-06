@@ -4,7 +4,7 @@
 - Nvidia GPU with CUDA support
 ### Clone the repo
 ```bash
-git clone
+git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
 ```
 ### Getting everything ready
 1. install pytorch
@@ -22,7 +22,14 @@ git clone
    python setup.py build_ext --inplace
    cp monotonic_align/*.pyd .
    ```
-3. Run the server
+4. Download models from zoo:  
+   ASR Model:   
+   to `/ASR/resources/models`  
+   Sentiment Model:  
+   to `/SentimentEngine/models`  
+   TTS Model:  
+   to `/TTS/models`
+5. Start the server
     ```bash
     run-gpt3.5-api.bat
     ```

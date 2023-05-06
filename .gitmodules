@@ -1,3 +1,3 @@
 [submodule ".\\TTS\\vits"]
-	path = .\\TTS\\vits
+	path = ./TTS/vits
 	url = https://github.com/zixiiu/vits
