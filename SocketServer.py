@@ -77,7 +77,7 @@ class Server():
         }
 
         # PARAFORMER
-        self.paraformer = ASRService.ASRService('../DL_Server/ASR/resources/config.yaml')
+        self.paraformer = ASRService.ASRService('./ASR/resources/config.yaml')
 
         # CHAT GPT
         self.chat_gpt = GPTService.GPTService(args)
