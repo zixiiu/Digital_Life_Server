@@ -24,7 +24,7 @@ git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
    cd "TTS/vits/monotonic_align"
    mkdir monotonic_align
    python setup.py build_ext --inplace
-   cp monotonic_align/*.pyd .
+   cp monotonic_align/*.so .
    ```
    
 4. Download models  
