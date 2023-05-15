@@ -7,6 +7,7 @@ git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
 cd Digital_Life_Server
 ```
 ### 配置环境
+**需要显卡，且需要cuda11.8**
 1. 使用conda建立python虚拟环境
 ```bash
 conda env create -f environment.yaml
