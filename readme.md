@@ -10,6 +10,7 @@ For other part of the project, please refer to:
 git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
 ```
 ### Install prerequisites
+建议看[readme_detail.md](readme_detail.md)
 1. install pytorch
     ```bash
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
