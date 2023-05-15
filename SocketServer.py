@@ -68,8 +68,8 @@ class Server():
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 10240000)
         self.s.bind((self.host, self.port))
-        self.tmp_recv_file = 'tmp/server_received.wav'
-        self.tmp_proc_file = 'tmp/server_processed.wav'
+        self.tmp_recv_file = '/tmp/server_received.wav'# 改为根目录
+        self.tmp_proc_file = '/tmp/server_processed.wav'
 
         ## hard coded character map
         self.char_name = {
