@@ -3,7 +3,7 @@
 > 现在是linux(ubuntu)的配置。使用python3.8
 ### 克隆仓库
 ```bash
-git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
+git clone https://github.com/seanxpw/Digital_Life_Server.git -b linux_ver_python3.8 --recursive
 cd Digital_Life_Server
 ```
 ### 配置环境
@@ -13,6 +13,10 @@ cd Digital_Life_Server
 conda env create -f environment.yaml
 ```
 这样会自动创建一个名字叫dlife的环境
+如果报错的话先下载pytorch就好。
+```bash
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
 
 requirements.txt是pip的，没有anaconda可以一试，不过yaml这个包好像是用conda装的
 到时候自己注意点。
@@ -46,3 +50,7 @@ to `/TTS/models`
 ```bash
 run-gpt3.5-api.bat
 ```
+
+实测python3.8会报一个版本检查的错误
+在lib/python3.8/site-packages/revChatGPT/__init__.py,line 23
+把数字9改成8就行
