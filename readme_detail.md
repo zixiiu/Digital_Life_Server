@@ -13,7 +13,11 @@ cd Digital_Life_Server
 conda env create -f environment.yaml
 ```
 这样会自动创建一个名字叫dlife的环境
-如果报错的话先下载pytorch就好。
+如果已经有了dlife
+```bash
+conda env update dlife -f environment.yaml
+```
+如果安装包的时候报错的话先运行下面的命令下载pytorch就好。
 ```bash
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
