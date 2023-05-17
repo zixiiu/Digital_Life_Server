@@ -56,5 +56,8 @@ run-gpt3.5-api.bat
 ```
 
 实测python3.8会报一个版本检查的错误
-在lib/python3.8/site-packages/revChatGPT/__init__.py,line 23
+在
+```bash
+dlife/lib/python3.8/site-packages/revChatGPT/__init__.py, line 23
+```
 把数字9改成8就行
