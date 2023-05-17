@@ -7,9 +7,10 @@ For other part of the project, please refer to:
 ## Getting stuffs ready to roll:
 ### Clone this repo
 ```bash
-git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
+git clone https://github.com/seanxpw/Digital_Life_Server.git -b linux_ver_python3.8 --recursive
 ```
 ### Install prerequisites
+建议看[readme_detail.md](readme_detail.md)
 1. install pytorch
     ```bash
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
@@ -24,7 +25,7 @@ git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
    cd "TTS/vits/monotonic_align"
    mkdir monotonic_align
    python setup.py build_ext --inplace
-   cp monotonic_align/*.pyd .
+   cp monotonic_align/*.so .
    ```
    
 4. Download models  

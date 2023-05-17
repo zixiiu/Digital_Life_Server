@@ -1,60 +1,46 @@
 ## 搭建”数字生命“服务:
 > ⚠ 注意：  
-> 如果不知道你在干什么（纯小白），请在**需要存放该项目的位置**打开终端(Win11)或Powershell(win10)，然后**按照下述说明逐步操作**即可  
-> 在进行以下操作前，请确保电脑中有Git和Python>=3.8
+> 现在是linux(ubuntu)的配置。使用python3.8
 ### 克隆仓库
 ```bash
-git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
+git clone https://github.com/seanxpw/Digital_Life_Server.git -b linux_ver_python3.8 --recursive
 cd Digital_Life_Server
 ```
-### 保姆式配置环境
-1. 使用virtualvenv建立python虚拟环境
+### 配置环境
+**需要显卡，且需要cuda11.8**
+1. 使用conda建立python虚拟环境
 ```bash
-python -m venv venv
+conda env create -f environment.yaml
 ```
-2. 安装pytorch于venv
-
-> 你可以在终端(或Powershell)输入`nvcc --version`，找到输出中`Cuda compilation tools`一行来查看cuda版本
-
-对于cuda11.8： 
-
-（默认地址，下载可能较慢）
+这样会自动创建一个名字叫dlife的环境
+如果已经有了dlife
 ```bash
-.\venv\Scripts\python.exe -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+conda env update dlife -f environment.yaml
 ```
-（国内加速地址，下载可能较快）
+如果安装包的时候报错的话先运行下面的命令下载pytorch就好。
 ```bash
-.\venv\Scripts\python.exe -m pip install torch==2.0.0+cu118 torchvision torchaudio -f https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
 
-对于没有Nvidia显卡的电脑：
+requirements.txt是pip的，没有anaconda可以一试，不过yaml这个包好像是用conda装的
+到时候自己注意点。
 
-（默认地址，下载可能较慢）
-```bash
-.\venv\Scripts\python.exe -m pip install torch torchvision torchaudio
-```
-（国内加速地址，下载可能较快）
-```bash
-.\venv\Scripts\python.exe -m pip install torch==2.0.0+cpu torchvision torchaudio -f https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
-```
-其余版本组合可以从[这个页面](https://pytorch.org/get-started/locally)获取具体的下载指令  
-
-3. 安装项目所需其它依赖项
- ```bash
-.\venv\Scripts\python.exe -m pip install -r requirements_out_of_pytorch.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
- ```
-4. Build `monotonic_align`
+2. Build `monotonic_align`
 ```bash
 cd "TTS/vits/monotonic_align"
 mkdir monotonic_align
 python setup.py build_ext --inplace
-cp monotonic_align/*.pyd .
+cp monotonic_align/*.so .
 ```
 
 > 到这里，项目构建完毕🥰
 
-5. 下载项目所需模型  
-[百度网盘](https://pan.baidu.com/s/1EnHDPADNdhDl71x_DHeElg?pwd=75gr)  
+3. 下载项目所需模型  
+[百度网盘](https://pan.baidu.com/s/1EnHDPADNdhDl71x_DHeElg?pwd=75gr)
+视频简介下面也有别的网盘的链接。在里面找对应的目录就行。
+注意TTS的一个模型名字应该是paimon6k_390k.pth  
+如果下载的是paimon6k_390000.pth请把名字修改为paimon6k_390k.pth
+
 ASR Model:   
 to `/ASR/resources/models`  
 Sentiment Model:  
@@ -68,3 +54,10 @@ to `/TTS/models`
 ```bash
 run-gpt3.5-api.bat
 ```
+
+实测python3.8会报一个版本检查的错误
+在
+```bash
+dlife/lib/python3.8/site-packages/revChatGPT/__init__.py, line 23
+```
+把数字9改成8就行
