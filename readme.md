@@ -14,10 +14,12 @@ git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
     ```bash
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
     ```
+
 2. install other requirements
     ```bash
     pip install -r requirements.txt
     ```
+
 3. Build `monotonic_align`  
    This may not work that well but you know what that suppose to mean.
    ```bash
@@ -26,7 +28,7 @@ git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
    python setup.py build_ext --inplace
    cp monotonic_align/*.pyd .
    ```
-   
+
 4. Download models  
    [百度网盘](https://pan.baidu.com/s/1EnHDPADNdhDl71x_DHeElg?pwd=75gr)  
    ASR Model:   
@@ -35,6 +37,20 @@ git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
    to `/SentimentEngine/models`  
    TTS Model:  
    to `/TTS/models`
+
+5. （对于**没有**Nvidia显卡的电脑，采用cpu来跑的话）需要额外做一步：
+
+   ​	将 Digital_Life_Server\TTS\TTService.py 文件下 36行
+
+   ```
+   self.net_g = SynthesizerTrn(...).cuda()
+   修改为
+   self.net_g = SynthesizerTrn(...).cpu()
+   ```
+
+   
+
+   > 到这里，项目构建完毕🥰
 
 ### Start the server
    ```bash

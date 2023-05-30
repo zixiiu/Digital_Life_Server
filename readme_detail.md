@@ -36,6 +36,7 @@ python -m venv venv
 （国内加速地址，下载可能较快）
 ```bash
 .\venv\Scripts\python.exe -m pip install torch==2.0.0+cpu torchvision torchaudio -f https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
+
 ```
 其余版本组合可以从[这个页面](https://pytorch.org/get-started/locally)获取具体的下载指令  
 
@@ -51,16 +52,26 @@ python setup.py build_ext --inplace
 cp monotonic_align/*.pyd .
 ```
 
-> 到这里，项目构建完毕🥰
+5. （对于**没有**Nvidia显卡的电脑，采用cpu来跑的话）需要额外做一步：
 
-5. 下载项目所需模型  
-[百度网盘](https://pan.baidu.com/s/1EnHDPADNdhDl71x_DHeElg?pwd=75gr)  
-ASR Model:   
-to `/ASR/resources/models`  
-Sentiment Model:  
-to `/SentimentEngine/models`  
-TTS Model:  
-to `/TTS/models`
+​	将 Digital_Life_Server\TTS\TTService.py 文件下 36行
+
+```
+self.net_g = SynthesizerTrn(...).cuda()
+修改为
+self.net_g = SynthesizerTrn(...).cpu()
+```
+
+> 到这里，项目构建完毕
+
+6. 下载项目所需模型  
+   [百度网盘](https://pan.baidu.com/s/1EnHDPADNdhDl71x_DHeElg?pwd=75gr)  
+   ASR Model:   
+   to `/ASR/resources/models`  
+   Sentiment Model:  
+   to `/SentimentEngine/models`  
+   TTS Model:  
+   to `/TTS/models`
 
 ### 启动“数字生命“服务器
 > ⚠ 注意：  
