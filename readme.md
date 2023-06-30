@@ -31,6 +31,8 @@ git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
 
 4. Download models  
    [百度网盘](https://pan.baidu.com/s/1EnHDPADNdhDl71x_DHeElg?pwd=75gr)  
+   [HuggingFace](https://huggingface.co/mike1999/models-for-Digital-Life-Server)
+
    ASR Model:   
    to `/ASR/resources/models`  
    Sentiment Model:  
