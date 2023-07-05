@@ -26,11 +26,20 @@ git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
    cd "TTS/vits/monotonic_align"
    mkdir monotonic_align
    python setup.py build_ext --inplace
+   ```
+   Windows系统的话, 执行
+   ```
    cp monotonic_align/*.pyd .
+   ```
+   Linux系统的话, 执行
+   ``` 
+   cp monotonic_align/*.so .
    ```
 
 4. Download models  
    [百度网盘](https://pan.baidu.com/s/1EnHDPADNdhDl71x_DHeElg?pwd=75gr)  
+   [HuggingFace](https://huggingface.co/mike1999/models-for-Digital-Life-Server)
+
    ASR Model:   
    to `/ASR/resources/models`  
    Sentiment Model:  
