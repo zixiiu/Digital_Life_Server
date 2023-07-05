@@ -42,6 +42,7 @@ class TTService():
         _ = utils.load_checkpoint(model, self.net_g, None)
 
     def read(self, text):
+        text = text.replace('~', '！')
         stn_tst = get_text(text, self.hps)
         with torch.no_grad():
             x_tst = stn_tst.cuda().unsqueeze(0)
