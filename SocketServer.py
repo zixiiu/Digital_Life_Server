@@ -62,7 +62,7 @@ class Server():
         self.addr = None
         self.conn = None
         logging.info('Initializing Server...')
-        self.host = socket.gethostbyname(socket.gethostname())
+        self.host = "0.0.0.0"# 所有地址上面监听
         self.port = 38438
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 10240000)
