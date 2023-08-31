@@ -14,7 +14,7 @@ import soundfile
 import GPT.tune
 from utils.FlushingFileHandler import FlushingFileHandler
 from ASR import ASRService
-from GPT import GPTService
+from GPT import GLMService
 from TTS import TTService
 from SentimentEngine import SentimentEngine
 
@@ -82,7 +82,7 @@ class Server():
         self.paraformer = ASRService.ASRService('./ASR/resources/config.yaml')
 
         # CHAT GPT
-        self.chat_gpt = GPTService.GLMService(args)
+        self.chat_gpt = GLMService.GLMService(args)
 
         # TTS
         self.tts = TTService.TTService(*self.char_name[args.character])
@@ -191,8 +191,15 @@ class Server():
 
         return text
 
-
+def test():
+    args = parse_args()
+    chat_glm = GLMService.GLMService(args)
+    # print(chat_glm.ask('你好'))
+    for back in chat_glm.ask_stream('你好'):
+        print(back,end='')
+    return 
 if __name__ == '__main__':
+    test()
     try:
         args = parse_args()
         s = Server(args)
