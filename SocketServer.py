@@ -199,7 +199,7 @@ def test():
         print(back,end='')
     return 
 if __name__ == '__main__':
-    test()
+    # test()
     try:
         args = parse_args()
         s = Server(args)

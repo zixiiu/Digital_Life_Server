@@ -43,6 +43,7 @@ datas.append(('ASR', 'ASR'))
 datas.append(('GPT\prompts_default', 'GPT\prompts_default'))
 datas.append(('tmp', 'tmp'))
 datas.append(('SentimentEngine\models\paimon_sentiment.onnx', 'SentimentEngine\models'))
+datas.append(('C:\\ProgramData\\Anaconda3\\envs\\DL\\Lib\\site-packages\proces', 'proces'))
 hiddenimports.extend(['tiktoken_ext.openai_public','tiktoken_ext'])
 
 
