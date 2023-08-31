@@ -5,6 +5,7 @@ import sys ; sys.setrecursionlimit(sys.getrecursionlimit() * 5)
 from PyInstaller.utils.hooks import collect_all
 import inspect
 import torch
+import os
 
 
 def collect_all_and_add_to_list(package_name, datas, binaries, hiddenimports):
@@ -32,15 +33,17 @@ def collect_source_files(modules):
 source_files = collect_source_files([torch])
 source_files_toc = TOC((name, path, 'DATA') for path, name in source_files)
 
-
-datas.append(('venv\lib\site-packages\librosa', 'librosa'))
-datas.append(('venv\lib\site-packages\cn2an', 'cn2an'))
+#for conda-env in win
+# datas += collect_data_files(os.path.join(os.environ['STDLIB_DIR'], 'site-packages', 'librosa'))
+datas.append(('C:\\ProgramData\\Anaconda3\\envs\\DL\\Lib\\site-packages\librosa', 'librosa'))
+datas.append(('C:\\ProgramData\\Anaconda3\\envs\\DL\\Lib\\site-packages\cn2an', 'cn2an'))
 datas.append(('TTS\models', 'TTS\models'))
-datas.append(('venv\lib\site-packages\jieba','jieba'))
+datas.append(('C:\\ProgramData\\Anaconda3\\envs\\DL\lib\site-packages\jieba','jieba'))
 datas.append(('ASR', 'ASR'))
 datas.append(('GPT\prompts_default', 'GPT\prompts_default'))
 datas.append(('tmp', 'tmp'))
 datas.append(('SentimentEngine\models\paimon_sentiment.onnx', 'SentimentEngine\models'))
+datas.append(('C:\\ProgramData\\Anaconda3\\envs\\DL\\Lib\\site-packages\proces', 'proces'))
 hiddenimports.extend(['tiktoken_ext.openai_public','tiktoken_ext'])
 
 

@@ -4,9 +4,9 @@ import time
 
 import GPT.machine_id
 import GPT.tune as tune
+import zhipuai
 
-
-class GPTService():
+class GLMService():
     def __init__(self, args):
         logging.info('Initializing ChatGPT Service...')
         self.chatVer = args.chatVer
