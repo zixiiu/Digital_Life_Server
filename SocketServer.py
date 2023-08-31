@@ -82,7 +82,7 @@ class Server():
         self.paraformer = ASRService.ASRService('./ASR/resources/config.yaml')
 
         # CHAT GPT
-        self.chat_gpt = GPTService.GPTService(args)
+        self.chat_gpt = GPTService.GLMService(args)
 
         # TTS
         self.tts = TTService.TTService(*self.char_name[args.character])

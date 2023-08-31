@@ -1,0 +1,9 @@
+*.pyd
+*.pyc
+
+TTS/models
+SentimentEngine/models
+
+ASR/resources/models
+*.log
+Client
