@@ -1,36 +1,40 @@
+# 用于测试TTService类功能的脚本
+import sys
+
+sys.path.append(r'E:\Repository\AI\Digital_Life_Server')
 import wave
 
 import numpy as np
 import pyaudio
 
-from TTS.TTService import TTService
+import TTS.TTService
 
 config_combo = [
     # 配置文件和模型路径的组合
-    ("TTS/models/CyberYunfei3k.json", "TTS/models/yunfei3k_69k.pth"),
-    ("TTS/models/paimon6k.json", "TTS/models/paimon6k_390k.pth"),
-    ("TTS/models/ayaka.json", "TTS/models/ayaka_167k.pth"),
-    ("TTS/models/ningguang.json", "TTS/models/ningguang_179k.pth"),
-    ("TTS/models/nahida.json", "TTS/models/nahida_129k.pth"),
-    ("TTS/models_unused/miko.json", "TTS/models_unused/miko_139k.pth"),
-    ("TTS/models_unused/yoimiya.json", "TTS/models_unused/yoimiya_102k.pth"),
-    ("TTS/models/noelle.json", "TTS/models/noelle_337k.pth"),
-    ("TTS/models_unused/yunfeimix.json", "TTS/models_unused/yunfeimix_122k.pth"),
-    ("TTS/models_unused/yunfeineo.json", "TTS/models_unused/yunfeineo_25k.pth"),
-    ("TTS/models/yunfeimix2.json", "TTS/models/yunfeimix2_47k.pth"),
-    ("TTS/models_unused/zhongli.json", "TTS/models_unused/zhongli_44k.pth"),
+    # ("TTS/models/CyberYunfei3k.json", "TTS/models/yunfei3k_69k.pth"),
+    # ("TTS/models/paimon6k.json", "TTS/models/paimon6k_390k.pth"),
+    # ("TTS/models/ayaka.json", "TTS/models/ayaka_167k.pth"),
+    # ("TTS/models/ningguang.json", "TTS/models/ningguang_179k.pth"),
+    # ("TTS/models/nahida.json", "TTS/models/nahida_129k.pth"),
+    # ("TTS/models_unused/miko.json", "TTS/models_unused/miko_139k.pth"),
+    # ("TTS/models_unused/yoimiya.json", "TTS/models_unused/yoimiya_102k.pth"),
+    # ("TTS/models/noelle.json", "TTS/models/noelle_337k.pth"),
+    # ("TTS/models_unused/yunfeimix.json", "TTS/models_unused/yunfeimix_122k.pth"),
+    # ("TTS/models_unused/yunfeineo.json", "TTS/models_unused/yunfeineo_25k.pth"),
+    ("TTS/models/yunfeimix2.json", "TTS/models/yunfeimix2_53k.pth"),
+    # ("TTS/models_unused/zhongli.json", "TTS/models_unused/zhongli_44k.pth"),
 ]
 
 # 遍历配置文件和模型路径的组合
 for cfg, model in config_combo:
     # 初始化 TTS 服务
-    a = TTService(cfg, model, 'test', 1)
+    a = TTS.TTService.TTService(cfg, model, 'test', 1)
 
     # 创建 PyAudio 对象
     p = pyaudio.PyAudio()
 
-    # 生成音频
-    audio = a.read('旅行者，今天是星期四，能否威我五十')
+    # 仅仅生成音频
+    audio = a.read('昵称称称称称称称称:未知昵称余额:1.3微信ID:wxid_lnyz5s1ii0322有问题留言')
 
     # 打开音频流
     stream = p.open(format=pyaudio.paFloat32,

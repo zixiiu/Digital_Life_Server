@@ -1,6 +1,6 @@
-from revChatGPT.V3 import Chatbot
 import os
 
+from revChatGPT.V3 import Chatbot
 
 os.environ['API_URL'] = "http://api2.geekerwan.net/"
 chatbot = Chatbot(api_key="hahaha")
