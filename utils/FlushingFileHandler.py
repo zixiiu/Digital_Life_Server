@@ -1,5 +1,4 @@
 import logging
-import os
 import time
 
 
@@ -7,6 +6,7 @@ class FlushingFileHandler(logging.FileHandler):
     def __init__(self, filename, mode="a", encoding=None, delay=False, formatter=None):
         super().__init__(filename, mode, encoding, delay)
         self.formatter = formatter
+
     def emit(self, record):
         super().emit(record)
         try:

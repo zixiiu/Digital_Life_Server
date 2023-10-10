@@ -5,6 +5,7 @@ import platform
 
 import uuid
 
+
 def get_machine_unique_identifier():
     if platform.system() == "Windows":
         # Use the Windows Management Instrumentation (WMI) interface
@@ -27,6 +28,7 @@ def get_machine_unique_identifier():
     machine_unique_id = uuid.uuid5(namespace, mac_address)
 
     return machine_unique_id
+
 
 if __name__ == '__main__':
     unique_id = get_machine_unique_identifier()
