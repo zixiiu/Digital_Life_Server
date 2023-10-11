@@ -1,6 +1,4 @@
 .idea
-dist
-build
 # models
 ASR/resources/models/am.mvn
 ASR/resources/models/model.onnx
@@ -9,6 +7,8 @@ SentimentEngine/models/paimon_sentiment.onnx
 TTS/models/*
 
 # output
+dist
+build
 TTS/vits/monotonic_align/monotonic_align
 TTS/vits/monotonic_align/build
 TTS/vits/monotonic_align/*.pyd

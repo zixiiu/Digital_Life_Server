@@ -2,9 +2,9 @@ import os
 
 from revChatGPT.V3 import Chatbot
 
-os.environ['API_URL'] = "http://api2.geekerwan.net/"
-chatbot = Chatbot(api_key="hahaha")
-print("Chatbot: ")
+# os.environ['API_URL'] = "http://api2.geekerwan.net/"
+chatbot = Chatbot(api_key="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", proxy="http://127.0.0.1:7890")
+print("Chatbot Start: ")
 prev_text = ""
 complete_text = ""
 for data in chatbot.ask(

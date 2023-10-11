@@ -8,24 +8,23 @@ import GPT.tune as tune
 
 class GPTService():
     def __init__(self, args):
-        logging.info('Initializing ChatGPT Service...')
-        self.chatVer = args.chatVer
+        logging.info('初始化ChatGPT服务…')
+        self.chatVer = args.chatVer  # ChatGPT版本
 
-        self.tune = tune.get_tune(args.character, args.model)
+        self.tune = tune.get_tune(args.character, args.model)  # 获取tune
 
-        self.counter = 0
+        self.counter = 0  # 计数器
 
-        self.brainwash = args.brainwash
+        self.brainwash = args.brainwash  # 是否启用Brainwash模式
 
-        if self.chatVer == 1:
+        if self.chatVer == 1:  # ChatGPT版本为1
             from revChatGPT.V1 import Chatbot
             config = {}
-            if args.accessToken:
-                logging.info('Try to login with access token.')
+            if args.accessToken:  # 如果有访问令牌
+                logging.info('尝试使用访问令牌登录。')
                 config['access_token'] = args.accessToken
-
             else:
-                logging.info('Try to login with email and password.')
+                logging.info('尝试使用电子邮件和密码登录。')
                 config['email'] = args.email
                 config['password'] = args.password
             config['paid'] = args.paid
@@ -33,37 +32,36 @@ class GPTService():
             if type(args.proxy) == str:
                 config['proxy'] = args.proxy
 
-            self.chatbot = Chatbot(config=config)
-            logging.info('WEB Chatbot initialized.')
+            self.chatbot = Chatbot(config=config)  # 初始化V1版本的Chatbot
+            logging.info('WEB Chatbot已初始化。')
 
-
-        elif self.chatVer == 3:
+        elif self.chatVer == 3:  # ChatGPT版本为3
             mach_id = GPT.machine_id.get_machine_unique_identifier()
             from revChatGPT.V3 import Chatbot
-            if args.APIKey:
-                logging.info('you have your own api key. Great.')
+            if args.APIKey:  # 如果有API密钥
+                logging.info('您有自己的API密钥。太棒了。')
                 api_key = args.APIKey
             else:
-                logging.info('using custom API proxy, with rate limit.')
+                logging.info('使用自定义API代理，带有速率限制。')
                 os.environ['API_URL'] = "https://api.geekerwan.net/chatgpt2"
                 api_key = mach_id
 
-            self.chatbot = Chatbot(api_key=api_key, proxy=args.proxy, system_prompt=self.tune)
-            logging.info('API Chatbot initialized.')
+            self.chatbot = Chatbot(api_key=api_key, proxy=args.proxy, system_prompt=self.tune)  # 初始化V3版本的Chatbot
+            logging.info('API Chatbot已初始化。')
 
     def ask(self, text):
         stime = time.time()
         if self.chatVer == 3:
             prev_text = self.chatbot.ask(text)
 
-        # V1
+        # V1版本
         elif self.chatVer == 1:
             for data in self.chatbot.ask(
                     self.tune + '\n' + text
             ):
                 prev_text = data["message"]
 
-        logging.info('ChatGPT Response: %s, time used %.2f' % (prev_text, time.time() - stime))
+        logging.info('ChatGPT响应：%s，用时%.2f秒' % (prev_text, time.time() - stime))
         return prev_text
 
     def ask_stream(self, text):
@@ -72,9 +70,9 @@ class GPTService():
         stime = time.time()
         if self.counter % 5 == 0 and self.chatVer == 1:
             if self.brainwash:
-                logging.info('Brainwash mode activated, reinforce the tune.')
+                logging.info('激活Brainwash模式，强化tune。')
             else:
-                logging.info('Injecting tunes')
+                logging.info('注入tune')
             asktext = self.tune + '\n' + text
         else:
             asktext = text
@@ -84,7 +82,7 @@ class GPTService():
 
             if ("。" in message or "！" in message or "？" in message or "\n" in message) and len(complete_text) > 3:
                 complete_text += message
-                logging.info('ChatGPT Stream Response: %s, @Time %.2f' % (complete_text, time.time() - stime))
+                logging.info('ChatGPT流式响应：%s，@时间 %.2f秒' % (complete_text, time.time() - stime))
                 yield complete_text.strip()
                 complete_text = ""
             else:
@@ -93,5 +91,5 @@ class GPTService():
             prev_text = data["message"] if self.chatVer == 1 else data
 
         if complete_text.strip():
-            logging.info('ChatGPT Stream Response: %s, @Time %.2f' % (complete_text, time.time() - stime))
+            logging.info('ChatGPT流式响应：%s，@时间 %.2f秒' % (complete_text, time.time() - stime))
             yield complete_text.strip()

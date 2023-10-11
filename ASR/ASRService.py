@@ -15,6 +15,7 @@ class ASRService():
         logging.info('ASR Result: %s. time used %.2f.' % (result, time.time() - stime))
         return result[0]
 
+
 if __name__ == '__main__':
     config_path = 'ASR/resources/config.yaml'
 
