@@ -6,13 +6,13 @@ from ASR.rapid_paraformer import RapidParaformer
 
 class ASRService():
     def __init__(self, config_path):
-        logging.info('Initializing ASR Service...')
+        logging.info('初始化ASR服务...')
         self.paraformer = RapidParaformer(config_path)
 
     def infer(self, wav_path):
         stime = time.time()
         result = self.paraformer(wav_path)
-        logging.info('ASR Result: %s. time used %.2f.' % (result, time.time() - stime))
+        logging.info('ASR结果：%s。用时：%.2f秒。' % (result, time.time() - stime))
         return result[0]
 
 

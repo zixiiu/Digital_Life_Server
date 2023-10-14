@@ -1,15 +1,21 @@
 # Digital Life Server
+
 这是「数字生命」服务部分代码。包括与前端通信，语音识别，chatGPT接入和语音合成。  
 For other part of the project, please refer to:  
 [Launcher](https://github.com/CzJam/DL_Launcher) 启动此服务器的图形界面。  
 [UE Client](https://github.com/QSWWLTN/DigitalLife) 用于渲染人物动画，录音，和播放声音的前端部分。    
 详细的配置流程可参见[readme_detail.md](readme_detail.md)
+
 ## Getting stuffs ready to roll:
+
 ### Clone this repo
+
 ```bash
 git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
 ```
+
 ### Install prerequisites
+
 1. install pytorch
     ```bash
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
@@ -40,7 +46,7 @@ git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
 
 5. （对于**没有**Nvidia显卡的电脑，采用cpu来跑的话）需要额外做一步：
 
-   ​	将 Digital_Life_Server\TTS\TTService.py 文件下 36行
+   ​ 将 Digital_Life_Server\TTS\TTService.py 文件下 36行
 
    ```
    self.net_g = SynthesizerTrn(...).cuda()
@@ -48,11 +54,10 @@ git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
    self.net_g = SynthesizerTrn(...).cpu()
    ```
 
-   
-
-   > 到这里，项目构建完毕🥰
+> 到这里，项目构建完毕🥰
 
 ### Start the server
+
    ```bash
    run-gpt3.5-api.bat
    ```

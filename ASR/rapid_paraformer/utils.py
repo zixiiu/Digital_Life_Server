@@ -22,7 +22,7 @@ logger_initialized = {}
 
 class TokenIDConverter():
     def __init__(self, token_path: Union[Path, str],
-                 unk_symbol: str = "<unk>",):
+                 unk_symbol: str = "<unk>", ):
         check_argument_types()
 
         self.token_list = self.load_token(token_path)
@@ -62,10 +62,10 @@ class TokenIDConverter():
 
 class CharTokenizer():
     def __init__(
-        self,
-        symbol_value: Union[Path, str, Iterable[str]] = None,
-        space_symbol: str = "<space>",
-        remove_non_linguistic_symbols: bool = False,
+            self,
+            symbol_value: Union[Path, str, Iterable[str]] = None,
+            space_symbol: str = "<space>",
+            remove_non_linguistic_symbols: bool = False,
     ):
         check_argument_types()
 
@@ -215,7 +215,7 @@ class WavFrontend():
         inputs = (inputs + means) * vars
         return inputs
 
-    def load_cmvn(self,) -> np.ndarray:
+    def load_cmvn(self, ) -> np.ndarray:
         with open(self.cmvn_file, 'r', encoding='utf-8') as f:
             lines = f.readlines()
 
@@ -293,11 +293,12 @@ class OrtInferSession():
                                         providers=EP_list)
 
         if config['use_cuda'] and cuda_ep not in self.session.get_providers():
-            warnings.warn(f'{cuda_ep} is not avaiable for current env, the inference part is automatically shifted to be executed under {cpu_ep}.\n'
-                          'Please ensure the installed onnxruntime-gpu version matches your cuda and cudnn version, '
-                          'you can check their relations from the offical web site: '
-                          'https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html',
-                          RuntimeWarning)
+            warnings.warn(
+                f'{cuda_ep} is not avaiable for current env, the inference part is automatically shifted to be executed under {cpu_ep}.\n'
+                'Please ensure the installed onnxruntime-gpu version matches your cuda and cudnn version, '
+                'you can check their relations from the offical web site: '
+                'https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html',
+                RuntimeWarning)
 
     def __call__(self,
                  input_content: List[Union[np.ndarray, np.ndarray]]) -> np.ndarray:
@@ -310,7 +311,7 @@ class OrtInferSession():
     def get_input_names(self, ):
         return [v.name for v in self.session.get_inputs()]
 
-    def get_output_names(self,):
+    def get_output_names(self, ):
         return [v.name for v in self.session.get_outputs()]
 
     def get_character_list(self, key: str = 'character'):

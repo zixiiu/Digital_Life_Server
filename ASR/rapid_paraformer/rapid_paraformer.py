@@ -126,7 +126,7 @@ class RapidParaformer():
         # Change integer-ids to tokens
         token = self.converter.ids2tokens(token_int)
         text = self.tokenizer.tokens2text(token)
-        return text[:valid_token_num-1]
+        return text[:valid_token_num - 1]
 
 
 if __name__ == '__main__':

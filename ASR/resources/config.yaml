@@ -24,8 +24,8 @@ Model:
   model_path: ASR/resources/models/model.onnx
   use_cuda: false
   CUDAExecutionProvider:
-      device_id: 0
-      arena_extend_strategy: kNextPowerOfTwo
-      cudnn_conv_algo_search: EXHAUSTIVE
-      do_copy_in_default_stream: true
+    device_id: 0
+    arena_extend_strategy: kNextPowerOfTwo
+    cudnn_conv_algo_search: EXHAUSTIVE
+    do_copy_in_default_stream: true
   batch_size: 3
