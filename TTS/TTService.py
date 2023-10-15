@@ -48,7 +48,7 @@ class TTService():
         Args:
             cfg (str): 配置文件路径
             model (str): 模型路径
-            char (str): 服务的特征
+            char (str): 服务的特征 - 角色
             speed (float): 音频生成速度
         """
         logging.info('Initializing TTS Service for %s...' % char)

@@ -37,23 +37,30 @@ def str2bool(v):
     elif v.lower() in ('no', 'false', 'f', 'n', '0'):
         return False
     else:
-        raise argparse.ArgumentTypeError('Unsupported value encountered.')
+        raise argparse.ArgumentTypeError('Unsupported value encountered.（遇到不支持的值。）')
 
 
 def parse_args():
     # 解析命令行参数
     parser = argparse.ArgumentParser()
+    # 1 Token / Email&Password ， 3 OPENAI_API_KEY
     parser.add_argument("--chatVer", type=int, nargs='?', required=True)
     parser.add_argument("--APIKey", type=str, nargs='?', required=False)
     parser.add_argument("--email", type=str, nargs='?', required=False)
     parser.add_argument("--password", type=str, nargs='?', required=False)
     parser.add_argument("--accessToken", type=str, nargs='?', required=False)
+    # ChatGPT 代理服务器 eg http://127.0.0.1:7890
     parser.add_argument("--proxy", type=str, nargs='?', required=False)
+    # "paid": True/False, # whether this is a plus account
     parser.add_argument("--paid", type=str2bool, nargs='?', required=False)
+    # 会话模型
     parser.add_argument("--model", type=str, nargs='?', required=False)
+    # 流式语音
     parser.add_argument("--stream", type=str2bool, nargs='?', required=True)
+    # 角色 ： paimon、 yunfei、 catmaid
     parser.add_argument("--character", type=str, nargs='?', required=True)
     parser.add_argument("--ip", type=str, nargs='?', required=False)
+    # 洗脑模式。循环发送提示词
     parser.add_argument("--brainwash", type=str2bool, nargs='?', required=False)
     return parser.parse_args()
 
@@ -72,7 +79,7 @@ class Server():
         self.tmp_recv_file = 'tmp/server_received.wav'  # 临时接收文件路径
         self.tmp_proc_file = 'tmp/server_processed.wav'  # 临时处理文件路径
 
-        ## 硬编码的角色映射
+        # 硬编码的角色映射
         self.char_name = {
             'paimon': ['TTS/models/paimon6k.json', 'TTS/models/paimon6k_390k.pth', 'character_paimon', 1],
             'yunfei': ['TTS/models/yunfeimix2.json', 'TTS/models/yunfeimix2_53k.pth', 'character_yunfei', 1.1],
@@ -102,7 +109,7 @@ class Server():
             while True:
                 try:
                     file = self.__receive_file()  # 接收文件
-                    # print('file received: %s' % file)
+                    logging.info('file received.')
                     with open(self.tmp_recv_file, 'wb') as f:
                         f.write(file)
                         logging.info('已接收并保存 WAV 文件。')

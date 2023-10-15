@@ -39,7 +39,7 @@ class GPTService():
             mach_id = GPT.machine_id.get_machine_unique_identifier()
             from revChatGPT.V3 import Chatbot
             if args.APIKey:  # 如果有API密钥
-                logging.info('您有自己的API密钥。太棒了。')
+                logging.info('使用用户提供的API密钥。')
                 api_key = args.APIKey
             else:
                 logging.info('使用自定义API代理，带有速率限制。')

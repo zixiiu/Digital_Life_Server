@@ -14,3 +14,6 @@ TTS/vits/monotonic_align/build
 TTS/vits/monotonic_align/*.pyd
 output.wav
 *.log
+/SocketServerPG.py
+/SocketServerPG.ipynb
+__pycach__
