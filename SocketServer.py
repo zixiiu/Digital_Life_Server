@@ -71,7 +71,8 @@ class Server():
         self.addr = None  # 连接地址
         self.conn = None  # 连接对象
         logging.info('Initializing Server...')  # 初始化日志记录
-        self.host = socket.gethostbyname(socket.gethostname())  # 获取主机IP地址
+        self.local_host = socket.gethostbyname(socket.gethostname())  # 获取主机IP地址
+        self.host = "0.0.0.0"  # 监听所有本机IP
         self.port = 38438  # 服务器端口号
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # 创建 TCP socket 对象
         self.s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 10240000)  # 设置 socket 缓冲区大小
@@ -102,6 +103,7 @@ class Server():
         # 主服务器循环
         while True:
             self.s.listen()  # 监听连接请求
+            logging.info("正在使用的主机IP地址：%s ", self.local_host)
             logging.info(f"服务器正在监听 {self.host}:{self.port}...")  # 记录日志，显示服务器正在监听的地址和端口
             self.conn, self.addr = self.s.accept()  # 接受客户端连接
             logging.info(f"已连接 {self.addr}")  # 记录日志，显示已连接的客户端地址
@@ -190,7 +192,7 @@ class Server():
                 file_data += data[0:-2]
                 break
             if not data:
-                # logging.info('Waiting for WAV...')
+                logging.info('Waiting for WAV...')
                 continue
             file_data += data
 

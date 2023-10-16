@@ -17,3 +17,6 @@ output.wav
 /SocketServerPG.py
 /SocketServerPG.ipynb
 __pycach__
+test*
+/TTS/vits/output.wav
+/tmp/*

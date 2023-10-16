@@ -2,8 +2,8 @@
 
 这是「数字生命」服务部分代码。包括与前端通信，语音识别，chatGPT接入和语音合成。  
 For other part of the project, please refer to:  
-[Launcher](https://github.com/CzJam/DL_Launcher) 启动此服务器的图形界面。  
-[UE Client](https://github.com/QSWWLTN/DigitalLife) 用于渲染人物动画，录音，和播放声音的前端部分。    
+[Launcher](https://github.com/Liegu0317/DL_Launcher) 启动此服务器的图形界面。  
+[UE Client](https://github.com/LIEGU0317/DigitalLife) 用于渲染人物动画，录音，和播放声音的前端部分。    
 详细的配置流程可参见[readme_detail.md](readme_detail.md)
 
 ## Getting stuffs ready to roll:
