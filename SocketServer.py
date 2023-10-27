@@ -14,6 +14,7 @@ import soundfile
 import GPT.tune
 from ASR import ASRService
 from GPT import GPTService
+from GPT import ERNIEBotService
 from SentimentEngine import SentimentEngine
 from TTS import TTService
 from utils.FlushingFileHandler import FlushingFileHandler
@@ -44,8 +45,10 @@ def parse_args():
     # 解析命令行参数
     parser = argparse.ArgumentParser()
     # 1 Token / Email&Password ， 3 OPENAI_API_KEY
-    parser.add_argument("--chatVer", type=int, nargs='?', required=True)
+    parser.add_argument("--chatVer", type=int, nargs='?', required=False)
+    # parser.add_argument("--chatVer", type=int, nargs='?', required=True)
     parser.add_argument("--APIKey", type=str, nargs='?', required=False)
+    parser.add_argument("--SecretKey", type=str, nargs='?', required=False)
     parser.add_argument("--email", type=str, nargs='?', required=False)
     parser.add_argument("--password", type=str, nargs='?', required=False)
     parser.add_argument("--accessToken", type=str, nargs='?', required=False)
@@ -56,7 +59,8 @@ def parse_args():
     # 会话模型
     parser.add_argument("--model", type=str, nargs='?', required=False)
     # 流式语音
-    parser.add_argument("--stream", type=str2bool, nargs='?', required=True)
+    # parser.add_argument("--stream", type=str2bool, nargs='?', required=True)
+    parser.add_argument("--stream", type=str2bool, nargs='?', required=False)
     # 角色 ： paimon、 yunfei、 catmaid
     parser.add_argument("--character", type=str, nargs='?', required=True)
     parser.add_argument("--ip", type=str, nargs='?', required=False)
@@ -90,8 +94,16 @@ class Server():
         # 语音识别服务
         self.paraformer = ASRService.ASRService('./ASR/resources/config.yaml')
 
-        # 对话生成服务
-        self.chat_gpt = GPTService.GPTService(args)
+        if "3.5" in args.model or "35" in args.model or "4" in args.model:
+            # ChatGPT对话生成服务
+            self.chat_gpt = GPTService.GPTService(args)
+        elif "Y" in args.model or "E" in args.model:
+            # ERNIEBot对话生成服务
+            self.ERNIEBot = ERNIEBotService.ERNIEBot(args)
+
+        # 生成此次会话标志码
+        self.access_token = self.ERNIEBot.get_access_token(args.APIKey, args.SecretKey)
+        logging.info(self.access_token)
 
         # 语音合成服务
         self.tts = TTService.TTService(*self.char_name[args.character])
@@ -116,12 +128,24 @@ class Server():
                         f.write(file)
                         logging.info('已接收并保存 WAV 文件。')
                     ask_text = self.process_voice()  # 处理语音获取文本
+
                     if args.stream:
+                        if args.SecretKey:  # ERNIEBot 除了key独需
+                            text_generator = self.ERNIEBot.ask_stream(ask_text)  # 进行ERNIEBot对话生成
+                            for resp_text in text_generator:
+                                self.send_voice(resp_text)  # 发送语音回复
+                            self.notice_stream_end()  # 通知流式对话结束
+                            continue
                         # 以流式方式进行对话生成
                         for sentence in self.chat_gpt.ask_stream(ask_text):
                             self.send_voice(sentence)  # 发送语音回复
                         self.notice_stream_end()  # 通知流式对话结束
                         logging.info('流式对话已完成。')
+                    elif args.SecretKey:  # ERNIEBot 除了key独需
+                        for sentence in self.ERNIEBot.ask(ask_text):  # 进行ERNIEBot对话生成
+                            self.send_voice(sentence)  # 发送语音回复
+                        self.notice_stream_end()  # 通知流式对话结束
+                        continue
                     else:
                         resp_text = self.chat_gpt.ask(ask_text)  # 进行对话生成
                         self.send_voice(resp_text)  # 发送语音回复

@@ -11,7 +11,7 @@ class GPTService():
         logging.info('初始化ChatGPT服务…')
         self.chatVer = args.chatVer  # ChatGPT版本
 
-        self.tune = tune.get_tune(args.character, args.model)  # 获取tune
+        self.tune = tune.get_tune(args.character, args.model)  # 获取tune-催眠咒
 
         self.counter = 0  # 计数器
 
@@ -66,31 +66,42 @@ class GPTService():
         return prev_text
 
     def ask_stream(self, text):
-        prev_text = ""
-        complete_text = ""
-        stime = time.time()
-        if self.counter % 5 == 0 and self.chatVer == 1:
-            if self.brainwash:
-                logging.info('激活Brainwash模式，强化tune。')
+        """
+        text： 获取到的单句文本
+        """
+        prev_text = ""  # 保存上一个消息的文本内容
+        complete_text = ""  # 保存完整的响应文本内容
+        stime = time.time()  # 记录当前时间，用于计算响应时间
+
+        if self.counter % 5 == 0 and self.chatVer == 1:  # 每第5次调用方法且chatVer等于1时执行
+            if self.brainwash:  # 如果启用了Brainwash模式
+                logging.info('激活Brainwash模式，强化tune。')  # 记录激活Brainwash模式的操作
             else:
-                logging.info('注入tune')
-            asktext = self.tune + '\n' + text
+                logging.info('注入tune')  # 记录注入tune的操作
+            asktext = self.tune + '\n' + text  # 在tune和text之间插入换行符，作为最终传递给ask方法的文本内容
         else:
-            asktext = text
-        self.counter += 1
+            asktext = text  # 最终传递给ask方法的文本内容为text
+
+        self.counter += 1  # 计数器自增1
+
+        # 根据chatVer的值选择不同的方法调用，并遍历返回的数据
         for data in self.chatbot.ask(asktext) if self.chatVer == 1 else self.chatbot.ask_stream(text):
-            message = data["message"][len(prev_text):] if self.chatVer == 1 else data
-
-            if ("。" in message or "！" in message or "？" in message or "\n" in message) and len(complete_text) > 3:
-                complete_text += message
-                logging.info('ChatGPT流式响应：%s，@时间 %.2f秒' % (complete_text, time.time() - stime))
-                yield complete_text.strip()
-                complete_text = ""
+            if self.chatVer == 1:
+                message = data["message"][len(prev_text):]  # 取出未处理部分的消息内容
             else:
-                complete_text += message
+                message = data  # 直接将data赋值给message变量
 
-            prev_text = data["message"] if self.chatVer == 1 else data
+            # 如果消息中包含句号、感叹号、问号或换行符且complete_text长度大于3，则表示已经接收到完整的响应
+            if ("。" in message or "！" in message or "？" in message or "\n" in message) and len(complete_text) > 3:
+                complete_text += message  # 将当前消息追加到完整的响应文本中
+                logging.info('ChatGPT流式响应：%s，@时间 %.2f秒' % (complete_text, time.time() - stime))  # 记录响应日志
+                yield complete_text.strip()  # 返回完整的响应文本，并清除首尾的空白字符
+                complete_text = ""  # 重置完整的响应文本
+            else:
+                complete_text += message  # 将当前消息追加到完整的响应文本中
 
-        if complete_text.strip():
-            logging.info('ChatGPT流式响应：%s，@时间 %.2f秒' % (complete_text, time.time() - stime))
-            yield complete_text.strip()
+            prev_text = data["message"] if self.chatVer == 1 else data  # 更新上一个消息的文本内容
+
+        if complete_text.strip():  # 如果还有未返回的完整响应文本
+            logging.info('ChatGPT流式响应：%s，@时间 %.2f秒' % (complete_text, time.time() - stime))  # 记录响应日志
+            yield complete_text.strip()  # 返回完整的响应文本，并清除首尾的空白字符
