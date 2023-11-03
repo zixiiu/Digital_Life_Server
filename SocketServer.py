@@ -49,7 +49,7 @@ def parse_args():
     parser.add_argument("--APIKey", type=str, nargs='?', required=False)
     # ERNIEBot app SecretKey
     parser.add_argument("--SecretKey", type=str, nargs='?', required=False)
-    # ERNIEBot accessToken
+    # ERNIEBot accessToken / OPEN_CHATGPT setCookie
     parser.add_argument("--accessToken", type=str, nargs='?', required=False)
     # parser.add_argument("--email", type=str, nargs='?', required=False)
     # parser.add_argument("--password", type=str, nargs='?', required=False)
@@ -60,7 +60,7 @@ def parse_args():
     # 会话模型
     parser.add_argument("--model", type=str, nargs='?', required=True)
     # 流式语音
-    parser.add_argument("--stream", type=str2bool, nargs='?', required=False)
+    parser.add_argument("--stream", type=str2bool, nargs='?', required=True)
     # 角色 ： paimon、 yunfei、 catmaid
     parser.add_argument("--character", type=str, nargs='?', required=True)
     # parser.add_argument("--ip", type=str, nargs='?', required=False)
@@ -106,7 +106,7 @@ class Server():
             else:
                 # 生成此次会话标志码
                 self.access_token = self.ERNIEBot.get_access_token(args.APIKey, args.SecretKey)
-                logging.info(self.access_token)
+                logging.info("会话标志码" + self.access_token)
 
         # 语音合成服务
         self.tts = TTService.TTService(*self.char_name[args.character])

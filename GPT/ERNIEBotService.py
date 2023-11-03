@@ -34,7 +34,7 @@ class ERNIEBot():
         """
         使用 API Key，Secret Key 获取access_token，替换下列示例中的应用API Key、应用Secret Key
         """
-        global access_token
+        access_token = ''
         if APIKey != '' and SecretKey != '':
             # logging.info('使用用户提供的应用API Key密钥。')
             url = "https://aip.baidubce.com/oauth/2.0/token"

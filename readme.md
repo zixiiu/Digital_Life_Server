@@ -9,9 +9,10 @@ For other part of the project, please refer to:
 ## Getting stuffs ready to roll:
 
 ### Clone this repo
+> 注意clone代码带有[`--recursive`](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)参数
 
 ```bash
-git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
+git clone https://github.com/liegu0317/Digital_Life_Server.git --recursive
 ```
 
 ### Install prerequisites
@@ -46,7 +47,7 @@ git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
 
 5. （对于**没有**Nvidia显卡的电脑，采用cpu来跑的话）需要额外做一步：
 
-   ​ 将 Digital_Life_Server\TTS\TTService.py 文件下 36行
+   将 Digital_Life_Server\TTS\TTService.py 文件下 36行
 
    ```
    self.net_g = SynthesizerTrn(...).cuda()
@@ -61,3 +62,7 @@ git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
    ```bash
    run-gpt3.5-api.bat
    ```
+
+## Startup parameter list
+
+@REM python %SCRIPT_NAME% --chatVer N/A --APIKey N/A --ip 192.168.31.207 --accessToken N/A --proxy N/A --paid False --brainwash False --model N/A --stream False --character N/A
