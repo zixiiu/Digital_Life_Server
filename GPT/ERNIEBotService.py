@@ -17,9 +17,14 @@ class ERNIEBot():
 
         self.counter = 0  # 洗脑计数器
 
+        if "4" in args.model:  # ERNIE-Bot-4
+            self.baseurl = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions_pro?access_token="
+        else:  # ERNIE-Bot
+            self.baseurl = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions?access_token="
+
         self.brainwash = args.brainwash  # 是否启用Brainwash模式
 
-        self.access_token = self.get_access_token(args.APIKey, args.SecretKey)  # 获取访问令牌
+        # self.access_token = self.get_access_token(args.APIKey, args.SecretKey)  # 获取访问令牌
 
         self.is_executed = False  # 标志变量，注入是否已经启用过，初始设置为False
 
@@ -62,8 +67,7 @@ class ERNIEBot():
         """
         stime = time.time()
 
-        url = ("https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions_pro?access_token=" +
-               self.access_token)
+        url = self.baseurl + self.access_token
 
         payload = json.dumps({
             "messages": [
@@ -95,7 +99,7 @@ class ERNIEBot():
         # 根据chatVer的值选择不同的方法调用，并遍历返回的数据
         # 如果条件为True，那么表达式的结果是self.chatbot.ask_stream(text)；如果条件为False，那么表达式的结果将是迭代器循环的结果。
 
-        url = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions_pro?access_token=" + self.access_token
+        url = self.baseurl + self.access_token
 
         payload = json.dumps({
             "messages": [

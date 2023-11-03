@@ -15,13 +15,13 @@ set STREAM=True
 @REM 指定角色的名称 paimon yunfei catmaid
 set CHARACTER=paimon
 @REM 指定使用的GPT模型 gpt-3.5 gpt-3.5-turbo gpt-4 ERNIEBot
-set MODEL=YiYan
+set MODEL=gpt-3.5
 
 @REM demo by lancher
 @REM python %SCRIPT_NAME% --chatVer N/A --APIKey N/A --ip 192.168.31.207 --accessToken N/A --proxy N/A --paid False --brainwash False --model N/A --stream False --character N/A
 
 @REM Chatgpt
-@REM python %SCRIPT_NAME% --chatVer %CHATVER%  --APIKey %OPENAI_API_KEY% --ip %server_ip% --proxy %PROXY% --stream %STREAM% --model %MODEL% --character %CHARACTER%
+python %SCRIPT_NAME% --chatVer %CHATVER%  --APIKey %OPENAI_API_KEY%  --proxy %PROXY% --stream %STREAM% --model %MODEL% --character %CHARACTER%
 @REM ERNIE-Bot-4
-python %SCRIPT_NAME% --stream %STREAM%  --SecretKey %EB4_SK% --APIKey %EB4_APIKey% --ip %server_ip% --model %MODEL% --character %CHARACTER%
+@REM python %SCRIPT_NAME% --stream %STREAM%  --SecretKey %EB4_SK% --APIKey %EB4_APIKey% --ip %server_ip% --model %MODEL% --character %CHARACTER%
 

@@ -46,24 +46,24 @@ def parse_args():
     parser = argparse.ArgumentParser()
     # 1 Token / Email&Password ， 3 OPENAI_API_KEY
     parser.add_argument("--chatVer", type=int, nargs='?', required=False)
-    # parser.add_argument("--chatVer", type=int, nargs='?', required=True)
     parser.add_argument("--APIKey", type=str, nargs='?', required=False)
+    # ERNIEBot app SecretKey
     parser.add_argument("--SecretKey", type=str, nargs='?', required=False)
-    parser.add_argument("--email", type=str, nargs='?', required=False)
-    parser.add_argument("--password", type=str, nargs='?', required=False)
+    # ERNIEBot accessToken
     parser.add_argument("--accessToken", type=str, nargs='?', required=False)
-    # ChatGPT 代理服务器 eg http://127.0.0.1:7890
+    # parser.add_argument("--email", type=str, nargs='?', required=False)
+    # parser.add_argument("--password", type=str, nargs='?', required=False)
+    # ChatGPT 代理服务器 http://127.0.0.1:7890
     parser.add_argument("--proxy", type=str, nargs='?', required=False)
     # "paid": True/False, # whether this is a plus account
     parser.add_argument("--paid", type=str2bool, nargs='?', required=False)
     # 会话模型
-    parser.add_argument("--model", type=str, nargs='?', required=False)
+    parser.add_argument("--model", type=str, nargs='?', required=True)
     # 流式语音
-    # parser.add_argument("--stream", type=str2bool, nargs='?', required=True)
     parser.add_argument("--stream", type=str2bool, nargs='?', required=False)
     # 角色 ： paimon、 yunfei、 catmaid
     parser.add_argument("--character", type=str, nargs='?', required=True)
-    parser.add_argument("--ip", type=str, nargs='?', required=False)
+    # parser.add_argument("--ip", type=str, nargs='?', required=False)
     # 洗脑模式。循环发送提示词
     parser.add_argument("--brainwash", type=str2bool, nargs='?', required=False)
     return parser.parse_args()
@@ -101,9 +101,12 @@ class Server():
             # ERNIEBot对话生成服务
             self.ERNIEBot = ERNIEBotService.ERNIEBot(args)
 
-        # 生成此次会话标志码
-        self.access_token = self.ERNIEBot.get_access_token(args.APIKey, args.SecretKey)
-        logging.info(self.access_token)
+            if args.accessToken:
+                self.access_token = args.accessToken
+            else:
+                # 生成此次会话标志码
+                self.access_token = self.ERNIEBot.get_access_token(args.APIKey, args.SecretKey)
+                logging.info(self.access_token)
 
         # 语音合成服务
         self.tts = TTService.TTService(*self.char_name[args.character])
