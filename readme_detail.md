@@ -72,7 +72,7 @@ cp monotonic_align/*.pyd .
 
 5. （对于**没有**Nvidia显卡的电脑，采用cpu来跑的话）需要额外做一步：
 
- 将 Digital_Life_Server\TTS\TTService.py 文件下 36行
+将 Digital_Life_Server\TTS\TTService.py 文件下 36行
 
 ```
 self.net_g = SynthesizerTrn(...).cuda()
@@ -94,26 +94,32 @@ self.net_g = SynthesizerTrn(...).cpu()
 ### 启动“数字生命“服务器
 
 > ⚠ 注意：  
-> 启动前，不要忘记根据实际情况修改bat文件中的具体配置
+> 启动前，不要忘记根据实际情况修改bat文件中的具体配置以及配置相关环境变量
 
 ```bash
 run-gpt3.5-api.bat
 ```
 
+or
+
+```bash
+run-gpt3.5-api.sh
+```
+
 #### 全部参数
 
-| 名称        | 描述                | 备注                                                         | 必填                           |
-| ----------- | ------------------- | ------------------------------------------------------------ | ------------------------------ |
-| chatVer     | 指定Chatbot的版本   | 1：setCookice登录<br />3：OPENAI_API_KEY登录                 | ChatGPT                        |
-| APIKey      | 应用秘钥            | 可选值：OPENAI_API_KEY、ERINEBot API Key                     | ERINEBot、ChatGPT（chatVer=1） |
-| SecretKey   | ERINEBot Secret Key | ERINEBot Secret Key                                          | ERINEBot                       |
-| accessToken | 会话标志码          | 可选值：[ERNIEBot accessToken](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/Ilkkrb0i5)、OPEN_CHATGPT setCookie | ChatGPT（chatVer=1）           |
-| paid        | 是否为ChatGPT plus  | True / Flase                                                 |                                |
-| proxy       | 代理服务地址        | 代理服务的地址，例如http://127.0.0.1:7890                    |                                |
-| brainwash   | 洗脑模式            | 推荐在chatVer=3时开启                                        |                                |
-| model       | 调用的模型          | 指定使用的GPT模型，可选值：gpt-3.5、gpt-3.5-turbo、gpt-4、ERNIEBot | ALL                            |
-| stream      | 流式回复            | 可有效减少响应时间，可选值：True、False                      | ALL                            |
-| character   | 使用的角色          | 指定所使用的角色，可选值：paimon、yunfei                     | ALL                            |
+| 名称          | 描述                  | 备注                                                                                                        | 必填                          |
+|-------------|---------------------|-----------------------------------------------------------------------------------------------------------|-----------------------------|
+| chatVer     | 指定Chatbot的版本        | 1：session-token or 邮件&密码登录(未实现)<br />3：OPENAI_API_KEY登录 or 使用自定义接口                                        | ChatGPT                     |
+| APIKey      | 应用秘钥                | 可选值：OPENAI_API_KEY、ERINEBot API Key                                                                       | ERINEBot、ChatGPT（chatVer=1） |
+| SecretKey   | ERINEBot Secret Key | ERINEBot Secret Key                                                                                       | ERINEBot                    |
+| accessToken | 会话标志码               | 可选值：[ERNIEBot accessToken](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/Ilkkrb0i5)、OPEN_CHATGPT setCookie | ChatGPT（chatVer=1）          |
+| paid        | 是否为ChatGPT plus     | True / Flase                                                                                              |                             |
+| proxy       | 代理服务地址              | 代理服务的地址，例如http://127.0.0.1:7890                                                                           |                             |
+| brainwash   | 洗脑模式                | 推荐在chatVer=3时开启                                                                                           |                             |
+| model       | 调用的模型               | 指定使用的GPT模型，可选值：gpt-3.5、gpt-3.5-turbo、gpt-4、ERNIEBot                                                       | ALL                         |
+| stream      | 流式回复                | 可有效减少响应时间，可选值：True、False                                                                                  | ALL                         |
+| character   | 使用的角色               | 指定所使用的角色，可选值：paimon、yunfei                                                                                | ALL                         |
 
 调用ChatGPT的命令行示例：
 
