@@ -8,7 +8,7 @@
 ### 克隆仓库
 
 ```bash
-git clone https://github.com/zixiiu/Digital_Life_Server.git --recursive
+git clone https://github.com/liegu0317/Digital_Life_Server.git --recursive
 cd Digital_Life_Server
 ```
 
@@ -56,6 +56,8 @@ python -m venv venv
 其余版本组合可以从[这个页面](https://pytorch.org/get-started/locally)获取具体的下载指令
 
 3. 安装项目所需其它依赖项
+
+> Linux忽略`requirements*.txt`中的依赖`pywin32==306`
 
  ```bash
 .\venv\Scripts\python.exe -m pip install -r requirements_out_of_pytorch.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
