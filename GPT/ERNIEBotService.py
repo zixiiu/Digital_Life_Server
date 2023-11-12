@@ -11,6 +11,7 @@ class ERNIEBot():
         """
         ERNIEBot-4 文心一言-4
         """
+        self.access_token = self.access_token
         logging.info('初始化ERNIE-Bot服务...')
 
         self.tune = tune.get_tune(args.character, args.model)  # 获取tune-催眠咒
@@ -45,6 +46,31 @@ class ERNIEBot():
         else:
             logging.info('应用 API Key 或 Secret Key未填写。')
         return access_token
+
+    # 每次提问都带有历史1k字节的对话历史
+    def get_history(self):
+        """
+        获取历史记录
+        """
+        url = self.baseurl + self.access_token
+
+        payload = json.dumps({
+            "messages": [
+                {
+                    "role": "user",
+                    "content": "你好，我是ERNIE-Bot。"
+                }
+            ]
+        })
+        headers = {
+            'Content-Type': 'application/json'
+        }
+
+        with requests.post(url, headers=headers, data=payload) as response:
+            response_json = response.json()
+            history = response_json.get("history")
+
+        return history
 
     def process_text(self, text):
         # 辅助函数，用于处理洗脑和提示词逻辑
