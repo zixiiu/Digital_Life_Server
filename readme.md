@@ -60,7 +60,7 @@ git clone https://github.com/liegu0317/Digital_Life_Server.git --recursive
 ### Start the server
 
    ```bash
-   run-gpt3.5-api.bat
+   run-gpt3.5-api.bat # run-gpt3.5-api.sh
    ```
 
 ## Startup parameter list

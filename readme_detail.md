@@ -1,9 +1,11 @@
-## 搭建”数字生命“服务:
+# 搭建”数字生命“服务
 
-> ⚠ 注意：  
-> 如果不知道你在干什么（纯小白），请在**需要存放该项目的位置**打开终端(Win11)或Powershell(win10)，然后**按照下述说明逐步操作
-**即可  
-> 在进行以下操作前，请确保电脑中有Git和Python>=3.8
+## 注意事项
+
+⚠ **重要：** 如果你是初学者，请在**需要存放该项目的位置**打开终端（Win11）或Powershell（Win10）或Terminal（Linux），并**按照以下步骤操作**
+。在开始前，请确保电脑中已安装Git和Conda。
+
+## 安装步骤
 
 ### 克隆仓库
 
@@ -14,95 +16,95 @@ cd Digital_Life_Server
 
 ### 保姆式配置环境
 
-1. 使用virtualvenv建立python虚拟环境
+#### 1. 使用conda建立python虚拟环境
 
 ```bash
-python -m venv venv
+conda create --name py39 python=3.9
 ```
 
-2. 安装pytorch于venv
+#### 2. 安装pytorch于`py39`环境
 
-> 你可以在终端(或Powershell)输入`nvcc --version`，找到输出中`Cuda compilation tools`一行来查看cuda版本
+- 激活`py39`环境
+  ```bash
+  conda activate py39
+  ```
+- 查看cuda版本
+  ```bash
+  nvcc --version
+  ```
 
-对于cuda11.8：
+**对于cuda11.8：**
 
-（默认地址，下载可能较慢）
+- 默认地址（下载可能较慢）
+  ```bash
+  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+  ```
+- 国内加速地址（下载可能较快）
+  ```bash
+  pip install torch==2.0.0+cu118 torchvision torchaudio -f https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
+  ```
 
-```bash
-.\venv\Scripts\python.exe -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-```
+**对于没有Nvidia显卡的电脑：**
 
-（国内加速地址，下载可能较快）
+- 默认地址（下载可能较慢）
+  ```bash
+  pip install torch torchvision torchaudio
+  ```
+- 国内加速地址（下载可能较快）
+  ```bash
+  pip install torch==2.0.0+cpu torchvision torchaudio -f https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
+  ```
 
-```bash
-.\venv\Scripts\python.exe -m pip install torch==2.0.0+cu118 torchvision torchaudio -f https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
-```
+- [其他版本组合指南](https://pytorch.org/get-started/locally)
 
-对于没有Nvidia显卡的电脑：
+#### 3. 安装项目所需其它依赖项
 
-（默认地址，下载可能较慢）
+- Linux：
+  先安装portaudio
+  ```bash
+  apt install portaudio19-dev # yum install portaudio-devel 
+  ```
+  然后安装其他依赖
+  ```bash
+  pip install -r requirements_out_of_pytorch.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+  ```
+- Windows：
+  ```bash
+  pip install -r requirements_out_of_pytorch.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+  ```
 
-```bash
-.\venv\Scripts\python.exe -m pip install torch torchvision torchaudio
-```
-
-（国内加速地址，下载可能较快）
-
-```bash
-.\venv\Scripts\python.exe -m pip install torch==2.0.0+cpu torchvision torchaudio -f https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
-
-```
-
-其余版本组合可以从[这个页面](https://pytorch.org/get-started/locally)获取具体的下载指令
-
-3. 安装项目所需其它依赖项
-
-> Linux忽略`requirements*.txt`中的依赖`pywin32==306`
-
- ```bash
-.\venv\Scripts\python.exe -m pip install -r requirements_out_of_pytorch.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
- ```
-
-4. Build `monotonic_align`
+#### 4. 构建 `monotonic_align`
 
 ```bash
 cd "TTS/vits/monotonic_align"
 mkdir monotonic_align
 python setup.py build_ext --inplace
-cp monotonic_align/*.pyd .
+cp monotonic_align/*.pyd . # linux修改为cp monotonic_align/*.so
 ```
 
-5. （对于**没有**Nvidia显卡的电脑，采用cpu来跑的话）需要额外做一步：
+#### 5. 对于不使用Nvidia显卡的电脑
 
-将 Digital_Life_Server\TTS\TTService.py 文件下 36行
+- 修改 `Digital_Life_Server\TTS\TTService.py` 文件下的第57-61行，将 `SynthesizerTrn(...).cuda()` 改为 `SynthesizerTrn(...).cpu()`
 
-```
-self.net_g = SynthesizerTrn(...).cuda()
-修改为
-self.net_g = SynthesizerTrn(...).cpu()
-```
+> 到此，项目构建完毕。
 
-> 到这里，项目构建完毕
+#### 6. 下载项目所需模型
 
-6. 下载项目所需模型  
-   [百度网盘](https://pan.baidu.com/s/1BkUnSte6Zso16FYlUMGfww?pwd=lg17)  、[阿里云盘](https://www.aliyundrive.com/s/jFvgsJVtV6g)
-   ASR Model:   
-   to `/ASR/resources/models`  
-   Sentiment Model:  
-   to `/SentimentEngine/models`  
-   TTS Model:  
-   to `/TTS/models`
+- [百度网盘](https://pan.baidu.com/s/1BkUnSte6Zso16FYlUMGfww?pwd=lg17)
+- [阿里云盘](https://www.aliyundrive.com/s/jFvgsJVtV6g)
+    - ASR Model: 放置于 `/ASR/resources/models`
+    - Sentiment Model: 放置于 `/SentimentEngine/models`
+    - TTS Model: 放置于 `/TTS/models`
 
-### 启动“数字生命“服务器
+## 启动“数字生命”服务器
 
-> ⚠ 注意：  
-> 启动前，不要忘记根据实际情况修改bat文件中的具体配置以及配置相关环境变量
+⚠ **注意：** 启动前，请根据实际情况修改bat文件中的具体配置以及配置相关环境变量。
 
 ```bash
 run-gpt3.5-api.bat
 ```
 
-or
+或
 
 ```bash
 run-gpt3.5-api.sh
@@ -123,15 +125,14 @@ run-gpt3.5-api.sh
 | stream      | 流式回复                | 可有效减少响应时间，可选值：True、False                                                                                  | ALL                         |
 | character   | 使用的角色               | 指定所使用的角色，可选值：paimon、yunfei                                                                                | ALL                         |
 
-调用ChatGPT的命令行示例：
+### 调用示例
 
-```
-python %SCRIPT_NAME% --chatVer %CHATVER%  --APIKey %OPENAI_API_KEY%  --proxy %PROXY% --stream %STREAM% --model %MODEL% --character %CHARACTER%
-```
-
-调用ERNIEBot（文心一言）的命令行示例：
-
-```
-python %SCRIPT_NAME% --stream %STREAM%  --SecretKey %EB4_SK% --APIKey %EB4_APIKey% --ip %server_ip% --model %MODEL% --character %CHARACTER%
-```
+- 调用ChatGPT命令行示例：
+  ```
+  python %SCRIPT_NAME% --chatVer %CHATVER%  --APIKey %OPENAI_API_KEY%  --proxy %PROXY% --stream %STREAM% --model %MODEL% --character %CHARACTER%
+  ```
+- 调用ERNIEBot命令行示例：
+  ```
+  python %SCRIPT_NAME% --stream %STREAM%  --SecretKey %EB4_SK% --APIKey %EB4_APIKey% --ip %server_ip% --model %MODEL% --character %CHARACTER%
+  ```
 

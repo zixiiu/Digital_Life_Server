@@ -13,8 +13,8 @@ import soundfile
 
 import GPT.tune
 from ASR import ASRService
-from GPT import GPTService
 from GPT import ERNIEBotService
+from GPT import GPTService
 from SentimentEngine import SentimentEngine
 from TTS import TTService
 from utils.FlushingFileHandler import FlushingFileHandler
@@ -94,19 +94,18 @@ class Server():
         # 语音识别服务
         self.paraformer = ASRService.ASRService('./ASR/resources/config.yaml')
 
-        if "3.5" in args.model or "35" in args.model or "4" in args.model:
+        if "gpt" in args.model or "GPT" in args.model:
             # ChatGPT对话生成服务
             self.chat_gpt = GPTService.GPTService(args)
         elif "Y" in args.model or "E" in args.model:
             # ERNIEBot对话生成服务
             self.ERNIEBot = ERNIEBotService.ERNIEBot(args)
-
             if args.accessToken:
-                self.access_token = args.accessToken
+                self.ERNIEBot.access_token = args.accessToken
             else:
                 # 生成此次会话标志码
-                self.access_token = self.ERNIEBot.get_access_token(args.APIKey, args.SecretKey)
-                logging.info("会话标志码" + self.access_token)
+                self.ERNIEBot.access_token = self.ERNIEBot.get_access_token(args.APIKey, args.SecretKey)
+                logging.info("会话标志码" + self.ERNIEBot.access_token)
 
         # 语音合成服务
         self.tts = TTService.TTService(*self.char_name[args.character])
@@ -132,24 +131,24 @@ class Server():
                         logging.info('已接收并保存 WAV 文件。')
                     ask_text = self.process_voice()  # 处理语音获取文本
 
-                    if args.stream:
-                        if args.SecretKey:  # ERNIEBot 除了key独需
-                            text_generator = self.ERNIEBot.ask_stream(ask_text)  # 进行ERNIEBot对话生成
-                            for resp_text in text_generator:
+                    if args.stream:  # 流式回复
+                        if args.SecretKey:  # ERNIEBot 特有
+                            # text_generator = self.ERNIEBot.ask_stream(ask_text)  # 进行ERNIEBot对话生成
+                            for resp_text in self.ERNIEBot.ask_stream(ask_text):  # 进行ERNIEBot对话生成:
                                 self.send_voice(resp_text)  # 发送语音回复
                             self.notice_stream_end()  # 通知流式对话结束
                             continue
                         # 以流式方式进行对话生成
-                        for sentence in self.chat_gpt.ask_stream(ask_text):
+                        for sentence in self.chat_gpt.ask_stream(ask_text):  # gpt
                             self.send_voice(sentence)  # 发送语音回复
                         self.notice_stream_end()  # 通知流式对话结束
                         logging.info('流式对话已完成。')
-                    elif args.SecretKey:  # ERNIEBot 除了key独需
+                    elif args.SecretKey:  # ERNIEBot 特有
                         for sentence in self.ERNIEBot.ask(ask_text):  # 进行ERNIEBot对话生成
                             self.send_voice(sentence)  # 发送语音回复
                         self.notice_stream_end()  # 通知流式对话结束
                         continue
-                    else:
+                    else:  # gpt
                         resp_text = self.chat_gpt.ask(ask_text)  # 进行对话生成
                         self.send_voice(resp_text)  # 发送语音回复
                         self.notice_stream_end()  # 通知流式对话结束

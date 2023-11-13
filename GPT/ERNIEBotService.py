@@ -11,7 +11,7 @@ class ERNIEBot():
         """
         ERNIEBot-4 文心一言-4
         """
-        self.access_token = self.access_token
+        self.access_token = ""
         logging.info('初始化ERNIE-Bot服务...')
 
         self.tune = tune.get_tune(args.character, args.model)  # 获取tune-催眠咒
@@ -153,5 +153,5 @@ class ERNIEBot():
                 if is_end:
                     break
             else:
-                # b'' 或 无法请求
+                # b'' 或 无法请求 等
                 pass
