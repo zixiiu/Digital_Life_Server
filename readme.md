@@ -62,7 +62,3 @@ git clone https://github.com/liegu0317/Digital_Life_Server.git --recursive
    ```bash
    run-gpt3.5-api.bat # run-gpt3.5-api.sh
    ```
-
-## Startup parameter list
-
-@REM python %SCRIPT_NAME% --chatVer N/A --APIKey N/A --ip 192.168.31.207 --accessToken N/A --proxy N/A --paid False --brainwash False --model N/A --stream False --character N/A

@@ -13,4 +13,5 @@ set MODEL=ERNIE-Bot-4
 @REM Chatgpt
 @REM python %SCRIPT_NAME% --chatVer %CHATVER%  --APIKey %OPENAI_API_KEY%  --proxy %PROXY% --stream %STREAM% --model %MODEL% --character %CHARACTER%
 @REM ERNIE-Bot-4
-python %SCRIPT_NAME% --stream %STREAM%  --SecretKey %EB4_SK% --APIKey %EB_APIKey% --model %MODEL% --character %CHARACTER%
+@REM python %SCRIPT_NAME% --stream %STREAM%  --SecretKey %EB4_SK% --APIKey %EB_APIKey% --model %MODEL% --character %CHARACTER%
+python %SCRIPT_NAME% --stream %STREAM%  --accessToken  --model %MODEL% --character %CHARACTER%

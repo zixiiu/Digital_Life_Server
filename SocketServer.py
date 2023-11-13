@@ -132,7 +132,7 @@ class Server():
                     ask_text = self.process_voice()  # 处理语音获取文本
 
                     if args.stream:  # 流式回复
-                        if args.SecretKey:  # ERNIEBot 特有
+                        if "Y" in args.model or "E" in args.model:  # ERNIEBot
                             # text_generator = self.ERNIEBot.ask_stream(ask_text)  # 进行ERNIEBot对话生成
                             for resp_text in self.ERNIEBot.ask_stream(ask_text):  # 进行ERNIEBot对话生成:
                                 self.send_voice(resp_text)  # 发送语音回复
@@ -143,12 +143,12 @@ class Server():
                             self.send_voice(sentence)  # 发送语音回复
                         self.notice_stream_end()  # 通知流式对话结束
                         logging.info('流式对话已完成。')
-                    elif args.SecretKey:  # ERNIEBot 特有
+                    elif "Y" in args.model or "E" in args.model:  # ERNIEBot ask
                         for sentence in self.ERNIEBot.ask(ask_text):  # 进行ERNIEBot对话生成
                             self.send_voice(sentence)  # 发送语音回复
                         self.notice_stream_end()  # 通知流式对话结束
                         continue
-                    else:  # gpt
+                    else:  # gpt ask
                         resp_text = self.chat_gpt.ask(ask_text)  # 进行对话生成
                         self.send_voice(resp_text)  # 发送语音回复
                         self.notice_stream_end()  # 通知流式对话结束

@@ -16,7 +16,7 @@ cd Digital_Life_Server
 
 ### 保姆式配置环境
 
-#### 1. 使用conda建立python虚拟环境
+#### 1. 使用conda建立python3.9虚拟环境
 
 ```bash
 conda create --name py39 python=3.9
@@ -128,11 +128,17 @@ run-gpt3.5-api.sh
 ### 调用示例
 
 - 调用ChatGPT命令行示例：
+  ```bash
+  python %SCRIPT_NAME% --chatVer 3  --APIKey %OPENAI_API_KEY%  --proxy %PROXY% --stream %STREAM% --model %MODEL% --character %CHARACTER%
   ```
-  python %SCRIPT_NAME% --chatVer %CHATVER%  --APIKey %OPENAI_API_KEY%  --proxy %PROXY% --stream %STREAM% --model %MODEL% --character %CHARACTER%
+  ```bash
+  python %SCRIPT_NAME% --chatVer 1  --accessToken %accessToken%  --proxy %PROXY% --stream %STREAM% --model %MODEL% --character %CHARACTER%
   ```
 - 调用ERNIEBot命令行示例：
+  ```bash
+  python %SCRIPT_NAME% --stream %STREAM%  --SecretKey %EB4_SK% --APIKey %EB4_APIKey% --model %MODEL% --character %CHARACTER%
   ```
-  python %SCRIPT_NAME% --stream %STREAM%  --SecretKey %EB4_SK% --APIKey %EB4_APIKey% --ip %server_ip% --model %MODEL% --character %CHARACTER%
+  ```bash
+  python %SCRIPT_NAME% --stream %STREAM%  --accessToken %accessToken% --model %MODEL% --character %CHARACTER%
   ```
 
