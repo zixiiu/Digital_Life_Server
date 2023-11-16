@@ -12,15 +12,24 @@
 ```bash
 git clone https://github.com/liegu0317/Digital_Life_Server.git --recursive
 cd Digital_Life_Server
+mkdir tmp
 ```
 
 ### 保姆式配置环境
 
-#### 1. 使用conda建立python3.9虚拟环境
+#### 1. 使用conda建立Python虚拟环境
 
 ```bash
-conda create --name py39 python=3.9
+conda create --name py39 python=3.9  # Windows
+# conda create --name py39 python=3.8  # Linux推荐3.8
 ```
+
+> revChatGPT包在Python3.8会被计划中断，需做如下修改
+> 将
+> ```bash
+> env_path/py38/lib/python3.8/site-packages/revChatGPT/__init__.py
+> ```
+> 文件第17行`elif int(...) < 9`修改为`elif int(...) < 8`
 
 #### 2. 安装pytorch于`py39`环境
 
@@ -62,11 +71,12 @@ conda create --name py39 python=3.9
 - Linux：
   先安装portaudio
   ```bash
-  apt install portaudio19-dev # yum install portaudio-devel 
+  apt install portaudio19-dev  #Ubuntu
+  # yum install portaudio-devel  #CentOS
   ```
   然后安装其他依赖
   ```bash
-  pip install -r requirements_out_of_pytorch.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+  pip install -r requirements_linux.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
   ```
 - Windows：
   ```bash
@@ -79,12 +89,12 @@ conda create --name py39 python=3.9
 cd "TTS/vits/monotonic_align"
 mkdir monotonic_align
 python setup.py build_ext --inplace
-cp monotonic_align/*.pyd . # linux修改为cp monotonic_align/*.so
+cp monotonic_align/*.pyd ./ # linux修改为cp monotonic_align/*.so
 ```
 
 #### 5. 对于不使用Nvidia显卡的电脑
 
-- 修改 `Digital_Life_Server\TTS\TTService.py` 文件下的第57-61行，将 `SynthesizerTrn(...).cuda()` 改为 `SynthesizerTrn(...).cpu()`
+- 修改 `Digital_Life_Server\TTS\TTService.py` 文件中三处，将 `.cuda()` 改为 `.to('cpu')`或`.cpu()`
 
 > 到此，项目构建完毕。
 
