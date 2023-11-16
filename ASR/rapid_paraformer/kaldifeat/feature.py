@@ -50,7 +50,7 @@ def sine(M):
     if M == 1:
         return np.ones(1, float)
     n = np.arange(0, M)
-    return np.sin(np.pi*n/(M-1))
+    return np.sin(np.pi * n / (M - 1))
 
 
 def povey(M):
@@ -59,7 +59,7 @@ def povey(M):
     if M == 1:
         return np.ones(1, float)
     n = np.arange(0, M)
-    return (0.5 - 0.5*np.cos(2.0*np.pi*n/(M-1)))**0.85
+    return (0.5 - 0.5 * np.cos(2.0 * np.pi * n / (M - 1))) ** 0.85
 
 
 def feature_window_function(window_type, window_size, blackman_coeff):
@@ -132,6 +132,7 @@ def extract_window(waveform, blackman_coeff, dither, window_size, window_shift,
         )
     return frames, log_enery
 
+
 # ---------- feature-window ----------
 
 
@@ -193,6 +194,7 @@ def apply_cmvn_sliding_internal(feat, center=False, window=600, min_window=100, 
                     std = np.concatenate([std, std3[1:]])
     feat = (feat - mean) / std
     return feat
+
 
 # ---------- feature-functions ----------
 
@@ -259,7 +261,8 @@ def compute_lifter_coeffs(q, M):
     if M == 1:
         return np.ones(1, float)
     n = np.arange(0, M)
-    return 1 + 0.5*np.sin(np.pi*n/q)*q
+    return 1 + 0.5 * np.sin(np.pi * n / q) * q
+
 
 # ---------- mel-computations ----------
 
@@ -352,6 +355,7 @@ def compute_fbank_feats(
         return feat, log_energy
     return feat
 
+
 # ---------- compute-fbank-feats ----------
 
 
@@ -430,6 +434,7 @@ def compute_mfcc_feats(
     if use_energy:
         feat[:, 0] = log_energy
     return feat
+
 
 # ---------- compute-mfcc-feats ----------
 

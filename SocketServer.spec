@@ -33,10 +33,10 @@ source_files = collect_source_files([torch])
 source_files_toc = TOC((name, path, 'DATA') for path, name in source_files)
 
 
-datas.append(('venv\lib\site-packages\librosa', 'librosa'))
-datas.append(('venv\lib\site-packages\cn2an', 'cn2an'))
+datas.append(('librosa', 'librosa'))
+datas.append(('cn2an', 'cn2an'))
 datas.append(('TTS\models', 'TTS\models'))
-datas.append(('venv\lib\site-packages\jieba','jieba'))
+datas.append(('jieba','jieba'))
 datas.append(('ASR', 'ASR'))
 datas.append(('GPT\prompts_default', 'GPT\prompts_default'))
 datas.append(('tmp', 'tmp'))

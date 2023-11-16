@@ -1,10 +1,15 @@
-from revChatGPT.V3 import Chatbot
 import os
 
+from revChatGPT.V3 import Chatbot
 
-os.environ['API_URL'] = "http://api2.geekerwan.net/"
-chatbot = Chatbot(api_key="hahaha")
-print("Chatbot: ")
+# 没有设置OpenAI APIKey 时使用geekerwan自建端口
+# os.environ['API_URL'] = "https://api.geekerwan.net/chatgpt2"
+# mach_id = machine_id.get_machine_unique_identifier()
+# api_key = mach_id
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+chatbot = Chatbot(api_key=OPENAI_API_KEY, proxy="http://127.0.0.1:7890")
+print("Chatbot Start: ")
 prev_text = ""
 complete_text = ""
 for data in chatbot.ask(

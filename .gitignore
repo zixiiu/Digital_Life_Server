@@ -1,0 +1,22 @@
+.idea
+# models
+ASR/resources/models/am.mvn
+ASR/resources/models/model.onnx
+ASR/resources/models/token_list.pkl
+SentimentEngine/models/paimon_sentiment.onnx
+TTS/models/*
+
+# output
+dist
+build
+TTS/vits/monotonic_align/monotonic_align
+TTS/vits/monotonic_align/build
+TTS/vits/monotonic_align/*.pyd
+output.wav
+*.log
+/SocketServerPG.py
+/SocketServerPG.ipynb
+__pycach__
+test*
+/TTS/vits/output.wav
+/tmp/*
