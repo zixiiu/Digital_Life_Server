@@ -1291,3 +1291,20 @@ OSError: [Errno 48] Address already in use
 
 2023-11-19 17:00:35,172 INFO VITS Synth Done, time used 3.51
 2023-11-19 17:00:35,681 INFO WAV SENT, size 585263
+2023-11-19 17:35:16,842 INFO Initializing Server...
+2023-11-19 17:35:16,843 INFO Initializing ASR Service...
+2023-11-19 17:35:18,421 INFO Initializing ChatGPT Service...
+2023-11-19 17:35:18,421 INFO chatGPT prompt: paimon35.txt
+2023-11-19 17:35:18,475 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-19 17:35:18,702 INFO you have your own api key. Great.
+2023-11-19 17:35:18,869 INFO API Chatbot initialized.
+2023-11-19 17:35:18,870 INFO Initializing TTS Service for character_paimon...
+2023-11-19 17:35:19,680 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-19 17:35:19,691 INFO Initializing Sentiment Engine...
+2023-11-19 17:35:21,168 INFO Server is listening on 0.0.0.0:38438...
+2023-11-19 17:35:37,731 INFO Connected by ('100.67.8.121', 58878)
+2023-11-19 17:35:51,113 INFO WAV file received and saved.
+2023-11-19 17:35:53,004 INFO ASR Result: ['你好啊']. time used 0.24.
+2023-11-19 17:36:06,543 INFO VITS Synth Done, time used 4.00
+2023-11-19 17:36:06,576 INFO Sentiment Engine Infer: 0
+2023-11-19 17:36:07,082 INFO WAV SENT, size 694831

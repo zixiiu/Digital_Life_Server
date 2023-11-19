@@ -54,7 +54,7 @@ class GPTService():
                 #os.environ['API_URL'] = "http://localhost:8000/v1/chat/completions"
                 os.environ['API_URL'] = "http://75.63.212.152:41841/v1/"
                 api_key = mach_id
-            self.chatbot = Chatbot(engine=args.model, api_key=api_key, proxy=args.proxy, system_prompt=self.tune, max_tokens=16000)
+            self.chatbot = Chatbot(api_key=api_key, proxy=args.proxy, system_prompt=self.tune, max_tokens=16000)
             logging.info('API Chatbot initialized.')
 
     def ask(self, text):
