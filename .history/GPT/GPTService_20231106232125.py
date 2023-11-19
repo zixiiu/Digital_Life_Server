@@ -14,9 +14,25 @@ class GPTService():
         desstr = desstr.replace("这是派蒙", "我是派蒙")
         return desstr
 
-    #过滤特殊字符, 过滤除中英文, 数字，半角（, .,?:"!），全角（，。？：“！）以外的其他字符，用于防止颜文字
+    #过滤特殊字符, 过滤除中英文, 数字, .,?:"!以外的其他字符
     def _filter_str(self, desstr):
-        return ''.join(re.findall(u'[\u4e00-\u9fa5a-zA-Z0-9\u002E\u002C\u003B\u003A\u0022\u0021\u0020\u003F\u0027\uFF0C\u3002\uFF1F\uFF1A\u201C\uFF01]', desstr)) 
+        return ''.join(re.findall(u'[\u4e00-\u9fa5a-zA-Z0-9\u002E\u002C\u003B\u003A\u0022\u0021\u0020\u003F\u0027]', desstr))
+
+    #dest_lang: EN, zh-CN
+    def _translate(self, input_text, dest_lang):
+        print("translate--> input:" + str(input_text))
+        URL = "https://translation.googleapis.com/language/translate/v2"
+        target = dest_lang
+        key = "AIzaSyDPKOFt2ZN0Ncg176DzjkoixtmwX18puD4"
+        q = input_text
+        params = {'target': target, 'key': key, 'q': q}
+
+        r = requests.get(url=URL, params=params)
+        data = r.json()
+
+        translated_text = data['data']['translations'][0]['translatedText']
+        print("translate -> translated:" + translated_text)
+        return translated_text
 
     def __init__(self, args):
         logging.info('Initializing ChatGPT Service...')
@@ -52,13 +68,14 @@ class GPTService():
             else:
                 logging.info('using custom API proxy, with rate limit.')                
                 #os.environ['API_URL'] = "http://localhost:8000/v1/chat/completions"
-                os.environ['API_URL'] = "http://75.63.212.152:41841/v1/"
+                os.environ['API_URL'] = "http://75.63.212.152:41874/v1/chat/completions"
                 api_key = mach_id
             self.chatbot = Chatbot(api_key=api_key, proxy=args.proxy, system_prompt=self.tune, max_tokens=2048)
             logging.info('API Chatbot initialized.')
 
     def ask(self, text):
         print("--->ask text:" + text)
+        text = self._translate(text, "EN")
         stime = time.time()
         if self.chatVer == 3:
             prev_text = self.chatbot.ask(text)
@@ -72,6 +89,8 @@ class GPTService():
         print("--->response:" + prev_text)
         prev_text = self._filter_str(prev_text)
         print("--->filterred:" + prev_text)
+        prev_text = self._translate(prev_text, "zh-CN")
+        print("--->translated:" + prev_text)
         prev_text = self._replace_str(prev_text)
         print("--->replaced:" + prev_text)
         return prev_text

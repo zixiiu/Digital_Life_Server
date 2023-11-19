@@ -65,7 +65,7 @@ class Server():
         self.host = "0.0.0.0"# 所有地址上面监听
         self.port = 38438
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 1024000)
+        self.s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 10240000)
         self.s.bind((self.host, self.port))
         self.tmp_recv_file = 'tmp/server_received.wav'
         self.tmp_proc_file = 'tmp/server_processed.wav'

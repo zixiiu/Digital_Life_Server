@@ -1,0 +1,1203 @@
+2023-11-06 14:34:35,862 INFO Initializing Server...
+2023-11-06 14:34:35,863 ERROR [Errno 55] No buffer space available
+2023-11-06 14:34:35,863 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 68, in __init__
+    self.s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 10240000)
+OSError: [Errno 55] No buffer space available
+
+2023-11-06 14:37:52,403 INFO Initializing Server...
+2023-11-06 14:37:52,403 ERROR [Errno 55] No buffer space available
+2023-11-06 14:37:52,403 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 68, in __init__
+    self.s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 10240000)
+OSError: [Errno 55] No buffer space available
+
+2023-11-06 14:40:17,051 INFO Initializing Server...
+2023-11-06 14:40:17,052 ERROR [Errno 55] No buffer space available
+2023-11-06 14:40:17,054 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 68, in __init__
+    self.s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 10240000)
+OSError: [Errno 55] No buffer space available
+
+2023-11-06 14:55:18,836 INFO Initializing Server...
+2023-11-06 14:55:18,837 INFO Initializing ASR Service...
+2023-11-06 14:55:20,331 INFO Initializing ChatGPT Service...
+2023-11-06 14:55:20,332 INFO chatGPT prompt: paimon35.txt
+2023-11-06 14:55:20,387 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-06 14:55:21,681 INFO you have your own api key. Great.
+2023-11-06 14:55:25,676 INFO API Chatbot initialized.
+2023-11-06 14:55:25,677 INFO Initializing TTS Service for character_paimon...
+2023-11-06 14:55:26,687 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-06 14:55:26,696 INFO Initializing Sentiment Engine...
+2023-11-06 14:55:30,988 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 14:56:43,022 INFO Connected by ('100.101.36.70', 39578)
+2023-11-06 14:56:47,253 INFO WAV file received and saved.
+2023-11-06 14:57:07,580 INFO ASR Result: ['你好啊']. time used 0.24.
+2023-11-06 14:57:10,551 INFO ChatGPT Response: 嘿嘿，你好你好！有什么事情要找我吗？还是你肚子饿了，想找我一起吃点好吃的？, time used 2.97
+2023-11-06 14:57:10,924 ERROR Torch not compiled with CUDA enabled
+2023-11-06 14:57:10,925 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 116, in listen
+    self.send_voice(resp_text)
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 143, in send_voice
+    self.tts.read_save(resp_text, self.tmp_proc_file, self.tts.hps.data.sampling_rate)
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/TTS/TTService.py", line 56, in read_save
+    au = self.read(text)
+         ^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/TTS/TTService.py", line 48, in read
+    x_tst = stn_tst.cuda().unsqueeze(0)
+            ^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/venv/lib/python3.11/site-packages/torch/cuda/__init__.py", line 239, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled
+
+2023-11-06 14:57:10,925 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 14:59:19,918 INFO Initializing Server...
+2023-11-06 14:59:19,918 INFO Initializing ASR Service...
+2023-11-06 14:59:21,260 INFO Initializing ChatGPT Service...
+2023-11-06 14:59:21,261 INFO chatGPT prompt: paimon35.txt
+2023-11-06 14:59:21,313 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-06 14:59:21,545 INFO you have your own api key. Great.
+2023-11-06 14:59:21,731 INFO API Chatbot initialized.
+2023-11-06 14:59:21,731 INFO Initializing TTS Service for character_paimon...
+2023-11-06 14:59:22,707 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-06 14:59:22,714 INFO Initializing Sentiment Engine...
+2023-11-06 14:59:23,748 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 14:59:28,203 INFO Connected by ('100.101.36.70', 41902)
+2023-11-06 14:59:34,064 INFO WAV file received and saved.
+2023-11-06 14:59:35,940 INFO ASR Result: ['你好啊']. time used 0.26.
+2023-11-06 14:59:37,973 INFO ChatGPT Response: 嘿嘿，你好你好！有什么我可以帮你的吗？还是你肚子饿了，需要找点好吃的？, time used 2.03
+2023-11-06 14:59:38,319 ERROR Torch not compiled with CUDA enabled
+2023-11-06 14:59:38,319 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 116, in listen
+    self.send_voice(resp_text)
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 143, in send_voice
+    self.tts.read_save(resp_text, self.tmp_proc_file, self.tts.hps.data.sampling_rate)
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/TTS/TTService.py", line 56, in read_save
+    au = self.read(text)
+         ^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/TTS/TTService.py", line 49, in read
+    x_tst_lengths = torch.LongTensor([stn_tst.size(0)]).cuda()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/venv/lib/python3.11/site-packages/torch/cuda/__init__.py", line 239, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled
+
+2023-11-06 14:59:38,320 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 15:00:31,669 INFO Initializing Server...
+2023-11-06 15:00:31,669 ERROR [Errno 48] Address already in use
+2023-11-06 15:00:31,669 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 15:00:38,114 INFO Initializing Server...
+2023-11-06 15:00:38,114 ERROR [Errno 48] Address already in use
+2023-11-06 15:00:38,115 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 15:00:41,010 INFO Initializing Server...
+2023-11-06 15:00:41,010 ERROR [Errno 48] Address already in use
+2023-11-06 15:00:41,010 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 15:00:51,700 INFO Initializing Server...
+2023-11-06 15:00:51,700 ERROR [Errno 48] Address already in use
+2023-11-06 15:00:51,700 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 15:00:54,840 INFO Initializing Server...
+2023-11-06 15:00:54,840 ERROR [Errno 48] Address already in use
+2023-11-06 15:00:54,841 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 15:00:57,587 INFO Initializing Server...
+2023-11-06 15:00:57,587 ERROR [Errno 48] Address already in use
+2023-11-06 15:00:57,587 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 15:01:00,667 INFO Initializing Server...
+2023-11-06 15:01:00,667 ERROR [Errno 48] Address already in use
+2023-11-06 15:01:00,667 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 15:01:03,630 INFO Initializing Server...
+2023-11-06 15:01:03,631 ERROR [Errno 48] Address already in use
+2023-11-06 15:01:03,631 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 15:04:04,162 INFO Initializing Server...
+2023-11-06 15:04:04,162 INFO Initializing ASR Service...
+2023-11-06 15:04:05,395 INFO Initializing ChatGPT Service...
+2023-11-06 15:04:05,396 INFO chatGPT prompt: paimon35.txt
+2023-11-06 15:04:05,444 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-06 15:04:05,616 INFO you have your own api key. Great.
+2023-11-06 15:04:05,780 INFO API Chatbot initialized.
+2023-11-06 15:04:05,780 INFO Initializing TTS Service for character_paimon...
+2023-11-06 15:04:06,699 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-06 15:04:06,706 INFO Initializing Sentiment Engine...
+2023-11-06 15:04:07,757 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 15:04:27,047 INFO Initializing Server...
+2023-11-06 15:04:27,047 INFO Initializing ASR Service...
+2023-11-06 15:04:28,346 INFO Initializing ChatGPT Service...
+2023-11-06 15:04:28,347 INFO chatGPT prompt: paimon35.txt
+2023-11-06 15:04:28,401 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-06 15:04:28,573 INFO you have your own api key. Great.
+2023-11-06 15:04:28,737 INFO API Chatbot initialized.
+2023-11-06 15:04:28,738 INFO Initializing TTS Service for character_paimon...
+2023-11-06 15:04:29,547 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-06 15:04:29,560 INFO Initializing Sentiment Engine...
+2023-11-06 15:04:30,547 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 15:04:31,999 INFO Connected by ('100.101.36.70', 40230)
+2023-11-06 15:04:36,837 INFO WAV file received and saved.
+2023-11-06 15:04:38,448 INFO ASR Result: ['你好啊']. time used 0.24.
+2023-11-06 15:04:41,322 INFO ChatGPT Response: 嘿嘿，你好你好！有什么我可以帮助你的吗？是不是肚子饿得厉害？, time used 2.87
+2023-11-06 15:04:50,258 ERROR The operator 'aten::_weight_norm_interface' is not currently implemented for the MPS device. If you want this op to be added in priority during the prototype phase of this feature, please comment on https://github.com/pytorch/pytorch/issues/77764. As a temporary fix, you can set the environment variable `PYTORCH_ENABLE_MPS_FALLBACK=1` to use the CPU as a fallback for this op. WARNING: this will be slower than running natively on MPS.
+2023-11-06 15:04:50,275 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 116, in listen
+    self.send_voice(resp_text)
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 143, in send_voice
+    self.tts.read_save(resp_text, self.tmp_proc_file, self.tts.hps.data.sampling_rate)
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/TTS/TTService.py", line 56, in read_save
+    au = self.read(text)
+         ^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/TTS/TTService.py", line 50, in read
+    audio = self.net_g.infer(x_tst, x_tst_lengths, noise_scale=.667, noise_scale_w=0.2, length_scale=self.speed)[0][
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/TTS/vits/models.py", line 521, in infer
+    z = self.flow(z_p, y_mask, g=g, reverse=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/TTS/vits/models.py", line 208, in forward
+    x = flow(x, x_mask, g=g, reverse=reverse)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/TTS/vits/modules.py", line 327, in forward
+    h = self.enc(h, x_mask, g=g)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/TTS/vits/modules.py", line 156, in forward
+    x_in = self.in_layers[i](x)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    result = hook(self, args)
+             ^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/venv/lib/python3.11/site-packages/torch/nn/utils/weight_norm.py", line 65, in __call__
+    setattr(module, self.name, self.compute_weight(module))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/venv/lib/python3.11/site-packages/torch/nn/utils/weight_norm.py", line 25, in compute_weight
+    return _weight_norm(v, g, self.dim)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NotImplementedError: The operator 'aten::_weight_norm_interface' is not currently implemented for the MPS device. If you want this op to be added in priority during the prototype phase of this feature, please comment on https://github.com/pytorch/pytorch/issues/77764. As a temporary fix, you can set the environment variable `PYTORCH_ENABLE_MPS_FALLBACK=1` to use the CPU as a fallback for this op. WARNING: this will be slower than running natively on MPS.
+
+2023-11-06 15:04:50,275 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 16:32:03,122 INFO Initializing Server...
+2023-11-06 16:32:03,122 INFO Initializing ASR Service...
+2023-11-06 16:32:04,656 INFO Initializing ChatGPT Service...
+2023-11-06 16:32:04,656 INFO chatGPT prompt: paimon35.txt
+2023-11-06 16:32:04,720 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-06 16:32:04,963 INFO you have your own api key. Great.
+2023-11-06 16:32:05,138 INFO API Chatbot initialized.
+2023-11-06 16:32:05,138 INFO Initializing TTS Service for character_paimon...
+2023-11-06 16:32:06,223 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-06 16:32:06,231 INFO Initializing Sentiment Engine...
+2023-11-06 16:32:07,418 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 16:32:08,701 INFO Connected by ('100.101.36.70', 40416)
+2023-11-06 16:32:16,872 INFO WAV file received and saved.
+2023-11-06 16:32:18,844 INFO ASR Result: ['你好啊']. time used 0.30.
+2023-11-06 16:32:21,438 INFO ChatGPT Response: 嘿嘿，你好你好！有什么我可以帮你的吗？是不是肚子饿得厉害？, time used 2.59
+2023-11-06 16:32:25,099 INFO VITS Synth Done, time used 3.66
+2023-11-06 16:32:25,128 INFO Sentiment Engine Infer: 0
+2023-11-06 16:32:25,633 INFO WAV SENT, size 526383
+2023-11-06 16:33:04,273 ERROR [Errno 54] Connection reset by peer
+2023-11-06 16:33:04,276 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 103, in listen
+    file = self.__receive_file()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 159, in __receive_file
+    data = self.conn.recv(1024)
+           ^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 54] Connection reset by peer
+
+2023-11-06 16:33:04,277 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 16:33:11,629 INFO Connected by ('100.101.36.70', 39910)
+2023-11-06 16:33:15,218 INFO WAV file received and saved.
+2023-11-06 16:33:15,453 INFO ASR Result: ['你好啊']. time used 0.22.
+2023-11-06 16:34:18,558 INFO Initializing Server...
+2023-11-06 16:34:18,558 ERROR [Errno 48] Address already in use
+2023-11-06 16:34:18,559 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 16:34:31,170 INFO Initializing Server...
+2023-11-06 16:34:31,171 ERROR [Errno 48] Address already in use
+2023-11-06 16:34:31,171 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 16:34:34,333 INFO Initializing Server...
+2023-11-06 16:34:34,333 ERROR [Errno 48] Address already in use
+2023-11-06 16:34:34,334 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 16:34:36,967 INFO Initializing Server...
+2023-11-06 16:34:36,967 ERROR [Errno 48] Address already in use
+2023-11-06 16:34:36,967 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 16:34:39,461 INFO Initializing Server...
+2023-11-06 16:34:39,461 ERROR [Errno 48] Address already in use
+2023-11-06 16:34:39,461 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 16:34:42,195 INFO Initializing Server...
+2023-11-06 16:34:42,196 ERROR [Errno 48] Address already in use
+2023-11-06 16:34:42,196 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 16:34:56,176 INFO Initializing Server...
+2023-11-06 16:34:56,176 ERROR [Errno 48] Address already in use
+2023-11-06 16:34:56,176 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 16:34:59,005 INFO Initializing Server...
+2023-11-06 16:34:59,006 ERROR [Errno 48] Address already in use
+2023-11-06 16:34:59,006 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 16:35:49,578 INFO Initializing Server...
+2023-11-06 16:35:49,579 INFO Initializing ASR Service...
+2023-11-06 16:35:51,076 INFO Initializing ChatGPT Service...
+2023-11-06 16:35:51,077 INFO chatGPT prompt: paimon35.txt
+2023-11-06 16:35:51,129 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-06 16:35:51,310 INFO you have your own api key. Great.
+2023-11-06 16:35:51,462 INFO API Chatbot initialized.
+2023-11-06 16:35:51,463 INFO Initializing TTS Service for character_paimon...
+2023-11-06 16:35:52,451 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-06 16:35:52,465 INFO Initializing Sentiment Engine...
+2023-11-06 16:35:53,454 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 16:35:56,342 INFO Connected by ('100.101.36.70', 49476)
+2023-11-06 16:35:59,885 INFO WAV file received and saved.
+2023-11-06 16:36:01,475 INFO ASR Result: ['你好啊']. time used 0.24.
+2023-11-06 16:36:03,622 INFO ChatGPT Response: 嘿嘿，你好呀！有什么事情需要派蒙帮忙的吗？还是只是来找我聊天的？, time used 2.14
+2023-11-06 16:36:06,374 INFO VITS Synth Done, time used 2.75
+2023-11-06 16:36:06,413 INFO Sentiment Engine Infer: 0
+2023-11-06 16:36:06,919 INFO WAV SENT, size 586287
+2023-11-06 16:36:26,900 INFO WAV file received and saved.
+2023-11-06 16:36:27,163 INFO ASR Result: ['你是谁呀']. time used 0.25.
+2023-11-06 16:36:30,512 INFO ChatGPT Response: 我是派蒙！旅行者的小伙伴和向导，负责带领旅行者在提瓦特大陆探险。我可是个话痨、急性子、吃货、小财迷哦！有什么问题或者需求，尽管告诉我，我会尽力帮你解决！嘿嘿~, time used 3.35
+2023-11-06 16:36:36,780 INFO VITS Synth Done, time used 6.27
+2023-11-06 16:36:36,854 INFO Sentiment Engine Infer: 0
+2023-11-06 16:36:37,582 INFO WAV SENT, size 1961007
+2023-11-06 16:41:25,049 INFO Initializing Server...
+2023-11-06 16:41:25,049 INFO Initializing ASR Service...
+2023-11-06 16:41:26,529 INFO Initializing ChatGPT Service...
+2023-11-06 16:41:26,530 INFO chatGPT prompt: paimon35.txt
+2023-11-06 16:41:26,581 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-06 16:41:26,802 INFO you have your own api key. Great.
+2023-11-06 16:41:26,953 INFO API Chatbot initialized.
+2023-11-06 16:41:26,953 INFO Initializing TTS Service for character_paimon...
+2023-11-06 16:41:27,617 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-06 16:41:27,630 INFO Initializing Sentiment Engine...
+2023-11-06 16:41:28,639 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 16:41:30,952 INFO Connected by ('100.101.36.70', 38392)
+2023-11-06 16:41:34,975 INFO WAV file received and saved.
+2023-11-06 16:41:36,772 INFO ASR Result: ['你好啊']. time used 0.32.
+2023-11-06 16:41:38,408 INFO ChatGPT Response: 嘿嘿，你好呀！你是不是肚子饿了？要不要来点好吃的？, time used 1.64
+2023-11-06 16:41:38,744 ERROR Torch not compiled with CUDA enabled
+2023-11-06 16:41:38,745 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 116, in listen
+    self.send_voice(resp_text)
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 143, in send_voice
+    self.tts.read_save(resp_text, self.tmp_proc_file, self.tts.hps.data.sampling_rate)
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/TTS/TTService.py", line 56, in read_save
+    au = self.read(text)
+         ^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/TTS/TTService.py", line 48, in read
+    x_tst = stn_tst.cuda().unsqueeze(0)
+            ^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/venv/lib/python3.11/site-packages/torch/cuda/__init__.py", line 239, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled
+
+2023-11-06 16:41:38,746 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 16:42:27,955 INFO Initializing Server...
+2023-11-06 16:42:27,955 ERROR [Errno 48] Address already in use
+2023-11-06 16:42:27,956 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-06 16:44:39,628 INFO Initializing Server...
+2023-11-06 16:44:39,628 INFO Initializing ASR Service...
+2023-11-06 16:44:41,034 INFO Initializing ChatGPT Service...
+2023-11-06 16:44:41,035 INFO chatGPT prompt: paimon35.txt
+2023-11-06 16:44:41,083 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-06 16:44:41,280 INFO you have your own api key. Great.
+2023-11-06 16:44:41,432 INFO API Chatbot initialized.
+2023-11-06 16:44:41,433 INFO Initializing TTS Service for character_paimon...
+2023-11-06 16:44:42,098 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-06 16:44:42,106 INFO Initializing Sentiment Engine...
+2023-11-06 16:44:43,108 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 16:45:24,230 INFO Connected by ('100.101.36.70', 48306)
+2023-11-06 16:45:27,776 INFO WAV file received and saved.
+2023-11-06 16:45:29,389 INFO ASR Result: ['你好啊']. time used 0.33.
+2023-11-06 16:45:31,246 INFO ChatGPT Response: 嘿嘿，你好你好！有什么事情需要我帮忙吗？或者是想找个地方吃点好吃的？, time used 1.86
+2023-11-06 16:45:34,751 INFO VITS Synth Done, time used 3.50
+2023-11-06 16:45:34,781 INFO Sentiment Engine Infer: 0
+2023-11-06 16:45:35,286 INFO WAV SENT, size 600623
+2023-11-06 16:45:50,774 INFO WAV file received and saved.
+2023-11-06 16:45:51,020 INFO ASR Result: ['你是谁呀']. time used 0.23.
+2023-11-06 16:45:53,452 INFO ChatGPT Response: 我是派蒙啊！你的忠实向导和伙伴。我是一个小小的生物，可以飘浮在空中，帮助你探索提瓦特大陆。有什么我可以帮助你的吗？, time used 2.42
+2023-11-06 16:45:58,646 INFO VITS Synth Done, time used 5.19
+2023-11-06 16:45:58,691 INFO Sentiment Engine Infer: 0
+2023-11-06 16:45:59,197 INFO WAV SENT, size 964655
+2023-11-06 16:46:41,536 ERROR [Errno 54] Connection reset by peer
+2023-11-06 16:46:41,537 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 103, in listen
+    file = self.__receive_file()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 159, in __receive_file
+    data = self.conn.recv(1024)
+           ^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 54] Connection reset by peer
+
+2023-11-06 16:46:41,537 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 22:19:31,737 INFO Initializing Server...
+2023-11-06 22:19:31,738 INFO Initializing ASR Service...
+2023-11-06 22:19:33,420 INFO Initializing ChatGPT Service...
+2023-11-06 22:19:33,421 INFO chatGPT prompt: paimon35.txt
+2023-11-06 22:19:33,482 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-06 22:19:33,804 INFO you have your own api key. Great.
+2023-11-06 22:19:33,983 INFO API Chatbot initialized.
+2023-11-06 22:19:33,984 INFO Initializing TTS Service for character_paimon...
+2023-11-06 22:19:34,705 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-06 22:19:34,718 INFO Initializing Sentiment Engine...
+2023-11-06 22:19:36,002 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 22:21:37,610 INFO Connected by ('100.101.36.70', 42894)
+2023-11-06 22:21:51,693 INFO WAV file received and saved.
+2023-11-06 22:21:56,854 INFO ASR Result: ['你好啊']. time used 0.23.
+2023-11-06 22:21:57,593 ERROR 401 Unauthorized {
+    "error": {
+        "message": "Incorrect API key provided: Xk62HrLq************************zIB2. You can find your API key at https://platform.openai.com/account/api-keys.",
+        "type": "invalid_request_error",
+        "param": null,
+        "code": "invalid_api_key"
+    }
+}
+
+2023-11-06 22:21:57,594 INFO API rate limit exceeded, sending: 
+你问的太多了，我们的毛都被你撸秃了，你自己去准备一个API，或者一小时后再来吧。
+
+2023-11-06 22:22:01,183 INFO VITS Synth Done, time used 3.59
+2023-11-06 22:22:01,695 INFO WAV SENT, size 582191
+2023-11-06 22:47:00,976 ERROR [Errno 54] Connection reset by peer
+2023-11-06 22:47:00,982 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 103, in listen
+    file = self.__receive_file()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 159, in __receive_file
+    data = self.conn.recv(1024)
+           ^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 54] Connection reset by peer
+
+2023-11-06 22:47:00,984 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 23:21:41,044 INFO Initializing Server...
+2023-11-06 23:21:41,044 INFO Initializing ASR Service...
+2023-11-06 23:21:42,536 INFO Initializing ChatGPT Service...
+2023-11-06 23:21:42,537 INFO chatGPT prompt: paimon35.txt
+2023-11-06 23:21:42,589 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-06 23:21:42,853 INFO you have your own api key. Great.
+2023-11-06 23:21:43,005 INFO API Chatbot initialized.
+2023-11-06 23:21:43,006 INFO Initializing TTS Service for character_paimon...
+2023-11-06 23:21:43,716 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-06 23:21:43,720 INFO Initializing Sentiment Engine...
+2023-11-06 23:21:44,799 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 23:22:21,868 INFO Connected by ('100.101.36.70', 46774)
+2023-11-06 23:22:30,001 INFO WAV file received and saved.
+2023-11-06 23:22:32,202 INFO ASR Result: ['你好啊']. time used 0.34.
+2023-11-06 23:22:32,820 ERROR 401 Unauthorized {
+    "error": {
+        "message": "Incorrect API key provided: Xk62HrLq************************zIB2. You can find your API key at https://platform.openai.com/account/api-keys.",
+        "type": "invalid_request_error",
+        "param": null,
+        "code": "invalid_api_key"
+    }
+}
+
+2023-11-06 23:22:32,822 INFO API rate limit exceeded, sending: 
+你问的太多了，我们的毛都被你撸秃了，你自己去准备一个API，或者一小时后再来吧。
+
+2023-11-06 23:22:36,268 INFO VITS Synth Done, time used 3.45
+2023-11-06 23:22:36,777 INFO WAV SENT, size 588847
+2023-11-06 23:22:49,548 INFO WAV file received and saved.
+2023-11-06 23:22:49,807 INFO ASR Result: ['你是谁呀']. time used 0.24.
+2023-11-06 23:22:50,213 ERROR 401 Unauthorized {
+    "error": {
+        "message": "Incorrect API key provided: Xk62HrLq************************zIB2. You can find your API key at https://platform.openai.com/account/api-keys.",
+        "type": "invalid_request_error",
+        "param": null,
+        "code": "invalid_api_key"
+    }
+}
+
+2023-11-06 23:22:50,221 INFO API rate limit exceeded, sending: 
+你问的太多了，我们的毛都被你撸秃了，你自己去准备一个API，或者一小时后再来吧。
+
+2023-11-06 23:22:53,268 INFO VITS Synth Done, time used 3.04
+2023-11-06 23:22:53,778 INFO WAV SENT, size 578607
+2023-11-06 23:38:06,174 INFO Initializing Server...
+2023-11-06 23:38:06,175 INFO Initializing ASR Service...
+2023-11-06 23:38:07,784 INFO Initializing ChatGPT Service...
+2023-11-06 23:38:07,784 INFO chatGPT prompt: paimon35.txt
+2023-11-06 23:38:07,839 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-06 23:38:08,125 INFO you have your own api key. Great.
+2023-11-06 23:38:08,287 INFO API Chatbot initialized.
+2023-11-06 23:38:08,287 INFO Initializing TTS Service for character_paimon...
+2023-11-06 23:38:08,984 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-06 23:38:08,993 INFO Initializing Sentiment Engine...
+2023-11-06 23:38:10,095 INFO Server is listening on 0.0.0.0:38438...
+2023-11-06 23:40:52,845 INFO Connected by ('100.101.36.70', 43500)
+2023-11-06 23:40:57,388 INFO WAV file received and saved.
+2023-11-06 23:40:59,705 INFO ASR Result: ['你好啊']. time used 0.30.
+2023-11-06 23:41:00,373 ERROR 404 Not Found <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <title>Error response</title>
+    </head>
+    <body>
+        <h1>Error response</h1>
+        <p>Error code: 404</p>
+        <p>Message: Not Found.</p>
+        <p>Error code explanation: 404 - Nothing matches the given URI.</p>
+    </body>
+</html>
+
+2023-11-06 23:41:00,374 INFO API rate limit exceeded, sending: 
+你问的太多了，我们的毛都被你撸秃了，你自己去准备一个API，或者一小时后再来吧。
+
+2023-11-06 23:41:03,987 INFO VITS Synth Done, time used 3.61
+2023-11-06 23:41:04,498 INFO WAV SENT, size 583727
+2023-11-06 23:41:25,310 INFO WAV file received and saved.
+2023-11-06 23:41:25,527 INFO ASR Result: ['你是谁呀']. time used 0.20.
+2023-11-06 23:41:26,167 ERROR 404 Not Found <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <title>Error response</title>
+    </head>
+    <body>
+        <h1>Error response</h1>
+        <p>Error code: 404</p>
+        <p>Message: Not Found.</p>
+        <p>Error code explanation: 404 - Nothing matches the given URI.</p>
+    </body>
+</html>
+
+2023-11-06 23:41:26,168 INFO API rate limit exceeded, sending: 
+你问的太多了，我们的毛都被你撸秃了，你自己去准备一个API，或者一小时后再来吧。
+
+2023-11-06 23:41:30,255 INFO VITS Synth Done, time used 4.09
+2023-11-06 23:41:30,764 INFO WAV SENT, size 581679
+2023-11-06 23:43:18,495 INFO Initializing Server...
+2023-11-06 23:43:18,495 INFO Initializing ASR Service...
+2023-11-06 23:43:19,908 INFO Initializing ChatGPT Service...
+2023-11-06 23:43:19,909 INFO chatGPT prompt: paimon35.txt
+2023-11-06 23:43:19,955 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-06 23:43:20,142 INFO you have your own api key. Great.
+2023-11-06 23:43:20,290 INFO API Chatbot initialized.
+2023-11-06 23:43:20,291 INFO Initializing TTS Service for character_paimon...
+2023-11-06 23:43:20,956 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-06 23:43:20,962 INFO Initializing Sentiment Engine...
+2023-11-06 23:43:21,823 INFO Server is listening on 0.0.0.0:38438...
+2023-11-07 00:05:21,653 INFO Connected by ('100.101.36.70', 43596)
+2023-11-07 00:05:26,645 INFO WAV file received and saved.
+2023-11-07 00:05:28,708 INFO ASR Result: ['你好啊']. time used 0.34.
+2023-11-07 00:05:29,432 ERROR 404 Not Found <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <title>Error response</title>
+    </head>
+    <body>
+        <h1>Error response</h1>
+        <p>Error code: 404</p>
+        <p>Message: Not Found.</p>
+        <p>Error code explanation: 404 - Nothing matches the given URI.</p>
+    </body>
+</html>
+
+2023-11-07 00:05:29,434 INFO API rate limit exceeded, sending: 
+你问的太多了，我们的毛都被你撸秃了，你自己去准备一个API，或者一小时后再来吧。
+
+2023-11-07 00:05:33,106 INFO VITS Synth Done, time used 3.67
+2023-11-07 00:05:33,618 INFO WAV SENT, size 583727
+2023-11-07 00:13:40,235 INFO Initializing Server...
+2023-11-07 00:13:40,235 INFO Initializing ASR Service...
+2023-11-07 00:13:41,721 INFO Initializing ChatGPT Service...
+2023-11-07 00:13:41,721 INFO chatGPT prompt: paimon35.txt
+2023-11-07 00:13:41,784 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-07 00:13:42,057 INFO you have your own api key. Great.
+2023-11-07 00:13:42,238 INFO API Chatbot initialized.
+2023-11-07 00:13:42,238 INFO Initializing TTS Service for character_paimon...
+2023-11-07 00:13:42,982 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-07 00:13:42,990 INFO Initializing Sentiment Engine...
+2023-11-07 00:13:44,023 INFO Server is listening on 0.0.0.0:38438...
+2023-11-07 00:13:47,626 INFO Connected by ('100.101.36.70', 46568)
+2023-11-07 00:14:14,268 INFO WAV file received and saved.
+2023-11-07 00:14:16,452 INFO ASR Result: ['你好啊']. time used 0.33.
+2023-11-07 00:14:19,148 ERROR 404 Not Found <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <title>Error response</title>
+    </head>
+    <body>
+        <h1>Error response</h1>
+        <p>Error code: 404</p>
+        <p>Message: Not Found.</p>
+        <p>Error code explanation: 404 - Nothing matches the given URI.</p>
+    </body>
+</html>
+
+2023-11-07 00:14:19,149 INFO API rate limit exceeded, sending: 
+你问的太多了，我们的毛都被你撸秃了，你自己去准备一个API，或者一小时后再来吧。
+
+2023-11-07 00:14:22,671 INFO VITS Synth Done, time used 3.52
+2023-11-07 00:14:23,179 INFO WAV SENT, size 583727
+2023-11-07 00:25:26,832 INFO WAV file received and saved.
+2023-11-07 00:25:27,252 INFO ASR Result: ['你是谁']. time used 0.41.
+2023-11-07 00:25:27,986 ERROR HTTPConnectionPool(host='75.63.212.152', port=41874): Max retries exceeded with url: /v1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x2ea423e10>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2023-11-07 00:25:27,988 INFO Something wrong with internet, sending: 
+你等一下，我连接不上大脑了。你是不是网有问题，或者是账号填错了？
+
+2023-11-07 00:25:30,959 INFO VITS Synth Done, time used 2.97
+2023-11-07 00:25:31,470 INFO WAV SENT, size 531503
+2023-11-07 00:36:57,796 INFO Initializing Server...
+2023-11-07 00:36:57,797 ERROR [Errno 48] Address already in use
+2023-11-07 00:36:57,797 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-07 00:37:14,693 INFO Initializing Server...
+2023-11-07 00:37:14,693 ERROR [Errno 48] Address already in use
+2023-11-07 00:37:14,694 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-07 00:37:17,685 INFO Initializing Server...
+2023-11-07 00:37:17,685 ERROR [Errno 48] Address already in use
+2023-11-07 00:37:17,686 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-07 00:37:20,576 INFO Initializing Server...
+2023-11-07 00:37:20,576 ERROR [Errno 48] Address already in use
+2023-11-07 00:37:20,577 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-07 00:38:11,512 INFO Initializing Server...
+2023-11-07 00:38:11,512 INFO Initializing ASR Service...
+2023-11-07 00:38:13,046 INFO Initializing ChatGPT Service...
+2023-11-07 00:38:13,047 INFO chatGPT prompt: paimon35.txt
+2023-11-07 00:38:13,097 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-07 00:38:13,342 INFO you have your own api key. Great.
+2023-11-07 00:38:13,507 INFO API Chatbot initialized.
+2023-11-07 00:38:13,507 INFO Initializing TTS Service for character_paimon...
+2023-11-07 00:38:14,265 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-07 00:38:14,275 INFO Initializing Sentiment Engine...
+2023-11-07 00:38:15,612 INFO Server is listening on 0.0.0.0:38438...
+2023-11-07 00:38:41,905 INFO Connected by ('100.101.36.70', 46156)
+2023-11-07 00:38:46,057 INFO WAV file received and saved.
+2023-11-07 00:38:48,074 INFO ASR Result: ['你好吗']. time used 0.33.
+2023-11-07 00:38:48,673 ERROR Expecting value: line 1 column 1 (char 0)
+2023-11-07 00:38:48,698 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 115, in listen
+    resp_text = self.chat_gpt.ask(ask_text)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/GPT/GPTService.py", line 81, in ask
+    prev_text = self.chatbot.ask(text)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/venv/lib/python3.11/site-packages/revChatGPT/V3.py", line 356, in ask
+    full_response: str = "".join(response)
+                         ^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/venv/lib/python3.11/site-packages/revChatGPT/V3.py", line 234, in ask_stream
+    resp: dict = json.loads(line)
+                 ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.6_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.6_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.6_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2023-11-07 00:38:48,699 INFO Server is listening on 0.0.0.0:38438...
+2023-11-07 00:44:51,325 INFO Connected by ('100.101.36.70', 40122)
+2023-11-07 00:44:59,945 INFO WAV file received and saved.
+2023-11-07 00:45:00,236 INFO ASR Result: ['你好啊']. time used 0.28.
+2023-11-07 00:45:00,870 ERROR 404 Not Found <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <title>Error response</title>
+    </head>
+    <body>
+        <h1>Error response</h1>
+        <p>Error code: 404</p>
+        <p>Message: Not Found.</p>
+        <p>Error code explanation: 404 - Nothing matches the given URI.</p>
+    </body>
+</html>
+
+2023-11-07 00:45:00,871 INFO API rate limit exceeded, sending: 
+你问的太多了，我们的毛都被你撸秃了，你自己去准备一个API，或者一小时后再来吧。
+
+2023-11-07 00:45:04,600 INFO VITS Synth Done, time used 3.73
+2023-11-07 00:45:05,111 INFO WAV SENT, size 596015
+2023-11-07 00:45:46,999 INFO Initializing Server...
+2023-11-07 00:45:46,999 ERROR [Errno 48] Address already in use
+2023-11-07 00:45:46,999 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-07 00:48:04,349 INFO Initializing Server...
+2023-11-07 00:48:04,349 INFO Initializing ASR Service...
+2023-11-07 00:48:05,826 INFO Initializing ChatGPT Service...
+2023-11-07 00:48:05,827 INFO chatGPT prompt: paimon35.txt
+2023-11-07 00:48:05,884 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-07 00:48:06,084 INFO you have your own api key. Great.
+2023-11-07 00:48:06,233 INFO API Chatbot initialized.
+2023-11-07 00:48:06,234 INFO Initializing TTS Service for character_paimon...
+2023-11-07 00:48:06,891 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-07 00:48:06,901 INFO Initializing Sentiment Engine...
+2023-11-07 00:48:07,745 INFO Server is listening on 0.0.0.0:38438...
+2023-11-07 00:48:14,776 INFO Connected by ('100.101.36.70', 39596)
+2023-11-07 00:48:18,983 INFO WAV file received and saved.
+2023-11-07 00:48:20,761 INFO ASR Result: ['你是谁呀']. time used 0.32.
+2023-11-07 00:48:21,294 ERROR HTTPConnectionPool(host='75.63.212.152', port=41841): Max retries exceeded with url: /v1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x2d1fa2a50>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2023-11-07 00:48:21,295 INFO Something wrong with internet, sending: 
+你等一下，我连接不上大脑了。你是不是网有问题，或者是账号填错了？
+
+2023-11-07 00:48:24,501 INFO VITS Synth Done, time used 3.20
+2023-11-07 00:48:25,010 INFO WAV SENT, size 539183
+2023-11-07 00:49:13,962 INFO Initializing Server...
+2023-11-07 00:49:13,963 ERROR [Errno 48] Address already in use
+2023-11-07 00:49:13,963 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-07 00:49:40,571 INFO Initializing Server...
+2023-11-07 00:49:40,571 INFO Initializing ASR Service...
+2023-11-07 00:49:42,031 INFO Initializing ChatGPT Service...
+2023-11-07 00:49:42,031 INFO chatGPT prompt: paimon35.txt
+2023-11-07 00:49:42,081 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-07 00:49:42,259 INFO you have your own api key. Great.
+2023-11-07 00:49:42,410 INFO API Chatbot initialized.
+2023-11-07 00:49:42,411 INFO Initializing TTS Service for character_paimon...
+2023-11-07 00:49:43,058 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-07 00:49:43,070 INFO Initializing Sentiment Engine...
+2023-11-07 00:49:43,976 INFO Server is listening on 0.0.0.0:38438...
+2023-11-07 00:50:24,505 INFO Connected by ('100.101.36.70', 46034)
+2023-11-07 00:50:28,583 INFO WAV file received and saved.
+2023-11-07 00:50:30,186 INFO ASR Result: ['你好啊']. time used 0.25.
+2023-11-07 00:50:34,116 INFO VITS Synth Done, time used 2.24
+2023-11-07 00:50:34,134 INFO Sentiment Engine Infer: 0
+2023-11-07 00:50:34,640 INFO WAV SENT, size 229423
+2023-11-07 00:50:43,853 INFO WAV file received and saved.
+2023-11-07 00:50:44,104 INFO ASR Result: ['你是谁呀']. time used 0.23.
+2023-11-07 00:50:49,971 INFO VITS Synth Done, time used 2.42
+2023-11-07 00:50:49,997 INFO Sentiment Engine Infer: 0
+2023-11-07 00:50:50,503 INFO WAV SENT, size 443951
+2023-11-07 00:54:21,532 INFO Initializing Server...
+2023-11-07 00:54:21,532 INFO Initializing ASR Service...
+2023-11-07 00:54:23,167 INFO Initializing ChatGPT Service...
+2023-11-07 00:54:23,168 INFO chatGPT prompt: paimon35.txt
+2023-11-07 00:54:23,227 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-07 00:54:23,416 INFO you have your own api key. Great.
+2023-11-07 00:54:23,579 INFO API Chatbot initialized.
+2023-11-07 00:54:23,579 INFO Initializing TTS Service for character_paimon...
+2023-11-07 00:54:24,429 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-07 00:54:24,440 INFO Initializing Sentiment Engine...
+2023-11-07 00:54:25,488 INFO Server is listening on 0.0.0.0:38438...
+2023-11-07 00:54:43,603 INFO Connected by ('100.101.36.70', 43594)
+2023-11-07 00:54:47,213 INFO WAV file received and saved.
+2023-11-07 00:54:48,925 INFO ASR Result: ['你好啊']. time used 0.32.
+2023-11-07 00:54:53,961 INFO VITS Synth Done, time used 2.62
+2023-11-07 00:54:53,985 INFO Sentiment Engine Infer: 4
+2023-11-07 00:54:54,491 INFO WAV SENT, size 414767
+2023-11-07 01:02:21,600 INFO Initializing Server...
+2023-11-07 01:02:21,600 ERROR [Errno 48] Address already in use
+2023-11-07 01:02:21,600 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-07 01:02:54,007 INFO Initializing Server...
+2023-11-07 01:02:54,007 INFO Initializing ASR Service...
+2023-11-07 01:02:55,458 INFO Initializing ChatGPT Service...
+2023-11-07 01:02:55,458 INFO chatGPT prompt: paimon35.txt
+2023-11-07 01:02:55,508 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-07 01:02:55,700 INFO you have your own api key. Great.
+2023-11-07 01:02:55,849 INFO API Chatbot initialized.
+2023-11-07 01:02:55,850 INFO Initializing TTS Service for character_paimon...
+2023-11-07 01:02:56,543 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-07 01:02:56,558 INFO Initializing Sentiment Engine...
+2023-11-07 01:02:57,995 INFO Server is listening on 0.0.0.0:38438...
+2023-11-07 01:03:41,317 INFO Connected by ('100.101.36.70', 48426)
+2023-11-07 01:03:44,961 INFO WAV file received and saved.
+2023-11-07 01:03:46,717 INFO ASR Result: ['你好啊']. time used 0.32.
+2023-11-07 01:03:55,938 INFO VITS Synth Done, time used 4.52
+2023-11-07 01:03:55,976 INFO Sentiment Engine Infer: 0
+2023-11-07 01:03:56,482 INFO WAV SENT, size 787503
+2023-11-07 01:04:08,916 INFO WAV file received and saved.
+2023-11-07 01:04:09,169 INFO ASR Result: ['你是谁呀']. time used 0.24.
+2023-11-07 01:04:17,429 INFO VITS Synth Done, time used 5.13
+2023-11-07 01:04:17,471 INFO Sentiment Engine Infer: 0
+2023-11-07 01:04:17,977 INFO WAV SENT, size 956463
+2023-11-07 01:04:38,539 INFO WAV file received and saved.
+2023-11-07 01:04:38,826 INFO ASR Result: ['你多大了']. time used 0.27.
+2023-11-07 01:04:47,507 INFO VITS Synth Done, time used 5.57
+2023-11-07 01:04:47,560 INFO Sentiment Engine Infer: 0
+2023-11-07 01:04:48,166 INFO WAV SENT, size 1093167
+2023-11-07 10:02:31,919 INFO Initializing Server...
+2023-11-07 10:02:31,920 ERROR [Errno 48] Address already in use
+2023-11-07 10:02:31,920 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-07 10:03:00,151 INFO Initializing Server...
+2023-11-07 10:03:00,151 INFO Initializing ASR Service...
+2023-11-07 10:03:01,627 INFO Initializing ChatGPT Service...
+2023-11-07 10:03:01,628 INFO chatGPT prompt: paimon35.txt
+2023-11-07 10:03:01,697 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-07 10:03:01,951 INFO you have your own api key. Great.
+2023-11-07 10:03:02,102 INFO API Chatbot initialized.
+2023-11-07 10:03:02,103 INFO Initializing TTS Service for character_paimon...
+2023-11-07 10:03:02,820 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-07 10:03:02,827 INFO Initializing Sentiment Engine...
+2023-11-07 10:03:03,880 INFO Server is listening on 0.0.0.0:38438...
+2023-11-07 10:03:08,937 INFO Connected by ('100.101.36.70', 42440)
+2023-11-07 10:03:48,592 INFO WAV file received and saved.
+2023-11-07 10:03:51,085 INFO ASR Result: ['嗯你好啊']. time used 0.33.
+2023-11-07 10:03:56,989 INFO VITS Synth Done, time used 3.28
+2023-11-07 10:03:57,015 INFO Sentiment Engine Infer: 0
+2023-11-07 10:03:57,521 INFO WAV SENT, size 479279
+2023-11-07 10:04:51,565 INFO WAV file received and saved.
+2023-11-07 10:04:51,888 INFO ASR Result: ['你叫什么名字']. time used 0.31.
+2023-11-07 10:04:58,428 INFO VITS Synth Done, time used 3.95
+2023-11-07 10:04:58,459 INFO Sentiment Engine Infer: 2
+2023-11-07 10:04:58,965 INFO WAV SENT, size 732207
+2023-11-07 10:05:37,070 INFO WAV file received and saved.
+2023-11-07 10:05:37,406 INFO ASR Result: ['呃你今天开心吗']. time used 0.32.
+2023-11-07 10:05:45,561 INFO VITS Synth Done, time used 5.42
+2023-11-07 10:05:45,592 INFO Sentiment Engine Infer: 2
+2023-11-07 10:05:46,098 INFO WAV SENT, size 778287
+2023-11-07 10:06:08,739 INFO WAV file received and saved.
+2023-11-07 10:06:09,101 INFO ASR Result: ['今天你能收到一个红包你开心吗']. time used 0.34.
+2023-11-07 10:06:18,676 INFO VITS Synth Done, time used 6.27
+2023-11-07 10:06:18,722 INFO Sentiment Engine Infer: 0
+2023-11-07 10:06:19,358 INFO WAV SENT, size 1211439
+2023-11-07 10:08:05,355 INFO WAV file received and saved.
+2023-11-07 10:08:05,615 INFO ASR Result: ['你今年多大了']. time used 0.24.
+2023-11-07 10:08:15,586 INFO VITS Synth Done, time used 6.50
+2023-11-07 10:08:15,641 INFO Sentiment Engine Infer: 2
+2023-11-07 10:08:16,192 INFO WAV SENT, size 1268271
+2023-11-07 10:09:15,782 INFO WAV file received and saved.
+2023-11-07 10:09:16,126 INFO ASR Result: ['呃你最伤心的是什么时候']. time used 0.33.
+2023-11-07 10:09:29,299 INFO VITS Synth Done, time used 8.52
+2023-11-07 10:09:29,367 INFO Sentiment Engine Infer: 0
+2023-11-07 10:09:30,212 INFO WAV SENT, size 1684015
+2023-11-07 10:11:10,356 INFO WAV file received and saved.
+2023-11-07 10:11:10,644 INFO ASR Result: ['呃派萌你给我笑一个']. time used 0.27.
+2023-11-07 10:11:15,242 INFO VITS Synth Done, time used 2.44
+2023-11-07 10:11:15,261 INFO Sentiment Engine Infer: 2
+2023-11-07 10:11:15,772 INFO WAV SENT, size 459311
+2023-11-07 10:20:05,218 ERROR [Errno 54] Connection reset by peer
+2023-11-07 10:20:05,221 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 103, in listen
+    file = self.__receive_file()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 159, in __receive_file
+    data = self.conn.recv(1024)
+           ^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 54] Connection reset by peer
+
+2023-11-07 10:20:05,221 INFO Server is listening on 0.0.0.0:38438...
+2023-11-07 10:22:03,143 INFO Connected by ('100.101.36.70', 48596)
+2023-11-07 10:25:27,750 ERROR [Errno 54] Connection reset by peer
+2023-11-07 10:25:27,757 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 103, in listen
+    file = self.__receive_file()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 159, in __receive_file
+    data = self.conn.recv(1024)
+           ^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 54] Connection reset by peer
+
+2023-11-07 10:25:27,758 INFO Server is listening on 0.0.0.0:38438...
+2023-11-18 19:03:48,974 INFO Initializing Server...
+2023-11-18 19:03:48,975 INFO Initializing ASR Service...
+2023-11-18 19:03:50,652 INFO Initializing ChatGPT Service...
+2023-11-18 19:03:50,652 INFO chatGPT prompt: paimon35.txt
+2023-11-18 19:03:50,718 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-18 19:03:51,172 INFO you have your own api key. Great.
+2023-11-18 19:03:56,133 INFO API Chatbot initialized.
+2023-11-18 19:03:56,134 INFO Initializing TTS Service for character_paimon...
+2023-11-18 19:03:56,827 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-18 19:03:56,837 INFO Initializing Sentiment Engine...
+2023-11-18 19:03:58,351 INFO Server is listening on 0.0.0.0:38438...
+2023-11-18 19:04:40,539 INFO Initializing Server...
+2023-11-18 19:04:40,539 INFO Initializing ASR Service...
+2023-11-18 19:04:42,033 INFO Initializing ChatGPT Service...
+2023-11-18 19:04:42,033 INFO chatGPT prompt: paimon35.txt
+2023-11-18 19:04:42,090 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-18 19:04:42,262 INFO you have your own api key. Great.
+2023-11-18 19:04:42,430 INFO API Chatbot initialized.
+2023-11-18 19:04:42,430 INFO Initializing TTS Service for character_paimon...
+2023-11-18 19:04:43,108 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-18 19:04:43,124 INFO Initializing Sentiment Engine...
+2023-11-18 19:04:44,187 INFO Server is listening on 0.0.0.0:38438...
+2023-11-18 19:05:54,982 INFO Connected by ('100.67.8.121', 54466)
+2023-11-18 19:06:04,394 INFO WAV file received and saved.
+2023-11-18 19:06:15,834 INFO ASR Result: ['你好啊']. time used 0.38.
+2023-11-18 19:06:20,958 INFO VITS Synth Done, time used 2.62
+2023-11-18 19:06:20,987 INFO Sentiment Engine Infer: 4
+2023-11-18 19:06:21,493 INFO WAV SENT, size 378927
+2023-11-18 19:06:36,485 INFO WAV file received and saved.
+2023-11-18 19:06:36,766 INFO ASR Result: ['你是谁呀']. time used 0.27.
+2023-11-18 19:06:42,482 INFO VITS Synth Done, time used 2.44
+2023-11-18 19:06:42,510 INFO Sentiment Engine Infer: 1
+2023-11-18 19:06:43,016 INFO WAV SENT, size 426543
+2023-11-18 19:06:59,175 INFO WAV file received and saved.
+2023-11-18 19:06:59,554 INFO ASR Result: ['你那个你在要做什么呢']. time used 0.36.
+2023-11-18 19:07:05,391 INFO VITS Synth Done, time used 2.98
+2023-11-18 19:07:05,481 INFO Sentiment Engine Infer: 2
+2023-11-18 19:07:05,987 INFO WAV SENT, size 517679
+2023-11-18 19:07:17,603 INFO WAV file received and saved.
+2023-11-18 19:07:17,987 INFO ASR Result: ['你要不要跟我一起去登山']. time used 0.36.
+2023-11-18 19:07:27,703 INFO VITS Synth Done, time used 6.16
+2023-11-18 19:07:27,757 INFO Sentiment Engine Infer: 0
+2023-11-18 19:07:28,333 INFO WAV SENT, size 1131055
+2023-11-18 19:07:51,016 INFO WAV file received and saved.
+2023-11-18 19:07:51,544 INFO ASR Result: ['我想要去登泰山那你是走上去呢还是飞上去呢']. time used 0.50.
+2023-11-18 19:08:06,046 INFO VITS Synth Done, time used 9.53
+2023-11-18 19:08:06,164 INFO Sentiment Engine Infer: 0
+2023-11-18 19:08:07,010 INFO WAV SENT, size 1785391
+2023-11-18 19:08:36,496 INFO WAV file received and saved.
+2023-11-18 19:08:36,995 INFO ASR Result: ['你能登得了吗你到时候在中途你登不动的时候你又要下山我那我到时候怎么办呢']. time used 0.47.
+2023-11-18 19:08:55,337 INFO VITS Synth Done, time used 13.26
+2023-11-18 19:08:55,479 INFO Sentiment Engine Infer: 0
+2023-11-18 19:08:56,410 INFO WAV SENT, size 2185263
+2023-11-18 19:09:28,428 INFO WAV file received and saved.
+2023-11-18 19:09:28,969 INFO ASR Result: ['嗯你好好锻炼身体吧你锻炼好身体然后我们明天再去登山']. time used 0.51.
+2023-11-18 19:09:30,790 ERROR 400 Bad Request {
+  "error": {
+    "message": "-2 is less than the minimum of 1 - 'max_tokens'",
+    "type": "invalid_request_error",
+    "param": null,
+    "code": null
+  }
+}
+
+2023-11-18 19:09:30,791 INFO API rate limit exceeded, sending: 
+你问的太多了，我们的毛都被你撸秃了，你自己去准备一个API，或者一小时后再来吧。
+
+2023-11-18 19:09:33,865 INFO VITS Synth Done, time used 3.07
+2023-11-18 19:09:34,377 INFO WAV SENT, size 581167
+2023-11-18 19:11:39,011 INFO WAV file received and saved.
+2023-11-18 19:11:39,470 INFO ASR Result: ['我看一下呃你我们来玩个文字冒险游戏好吗']. time used 0.42.
+2023-11-18 19:11:40,592 ERROR 400 Bad Request {
+  "error": {
+    "message": "-28 is less than the minimum of 1 - 'max_tokens'",
+    "type": "invalid_request_error",
+    "param": null,
+    "code": null
+  }
+}
+
+2023-11-18 19:11:40,593 INFO API rate limit exceeded, sending: 
+你问的太多了，我们的毛都被你撸秃了，你自己去准备一个API，或者一小时后再来吧。
+
+2023-11-18 19:11:44,679 INFO VITS Synth Done, time used 4.09
+2023-11-18 19:11:45,188 INFO WAV SENT, size 581679
+2023-11-18 19:12:00,198 ERROR [Errno 32] Broken pipe
+2023-11-18 19:12:00,202 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 103, in listen
+    file = self.__receive_file()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 161, in __receive_file
+    self.conn.send(b'sb')
+BrokenPipeError: [Errno 32] Broken pipe
+
+2023-11-18 19:12:00,204 INFO Server is listening on 0.0.0.0:38438...
+2023-11-18 19:12:03,265 INFO Connected by ('100.67.8.121', 54534)
+2023-11-18 19:12:12,545 INFO WAV file received and saved.
+2023-11-18 19:12:12,933 INFO ASR Result: ['潘们你会玩游戏吗']. time used 0.36.
+2023-11-18 19:12:14,003 ERROR 400 Bad Request {
+  "error": {
+    "message": "-41 is less than the minimum of 1 - 'max_tokens'",
+    "type": "invalid_request_error",
+    "param": null,
+    "code": null
+  }
+}
+
+2023-11-18 19:12:14,005 INFO API rate limit exceeded, sending: 
+你问的太多了，我们的毛都被你撸秃了，你自己去准备一个API，或者一小时后再来吧。
+
+2023-11-18 19:12:17,103 INFO VITS Synth Done, time used 3.10
+2023-11-18 19:12:17,610 INFO WAV SENT, size 584751
+2023-11-18 19:12:30,259 INFO Initializing Server...
+2023-11-18 19:12:30,260 ERROR [Errno 48] Address already in use
+2023-11-18 19:12:30,260 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 198, in <module>
+    s = Server(args)
+        ^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 69, in __init__
+    self.s.bind((self.host, self.port))
+OSError: [Errno 48] Address already in use
+
+2023-11-18 19:13:58,805 INFO Initializing Server...
+2023-11-18 19:13:58,808 INFO Initializing ASR Service...
+2023-11-18 19:14:00,607 INFO Initializing ChatGPT Service...
+2023-11-18 19:14:00,608 INFO chatGPT prompt: paimon35.txt
+2023-11-18 19:14:00,671 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-18 19:14:00,910 INFO you have your own api key. Great.
+2023-11-18 19:14:01,082 INFO API Chatbot initialized.
+2023-11-18 19:14:01,082 INFO Initializing TTS Service for character_paimon...
+2023-11-18 19:14:01,774 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-18 19:14:01,784 INFO Initializing Sentiment Engine...
+2023-11-18 19:14:03,391 INFO Server is listening on 0.0.0.0:38438...
+2023-11-18 19:14:17,684 INFO Connected by ('100.67.8.121', 54548)
+2023-11-18 19:14:23,441 INFO WAV file received and saved.
+2023-11-18 19:14:25,299 INFO ASR Result: ['晚上好']. time used 0.34.
+2023-11-18 19:14:33,770 INFO VITS Synth Done, time used 2.70
+2023-11-18 19:14:33,791 INFO Sentiment Engine Infer: 0
+2023-11-18 19:14:34,297 INFO WAV SENT, size 416815
+2023-11-18 19:14:45,067 INFO WAV file received and saved.
+2023-11-18 19:14:45,447 INFO ASR Result: ['我一点都不饿我现在想要玩游戏']. time used 0.36.
+2023-11-18 19:15:02,543 INFO VITS Synth Done, time used 5.91
+2023-11-18 19:15:02,625 INFO Sentiment Engine Infer: 2
+2023-11-18 19:15:03,185 INFO WAV SENT, size 1081903
+2023-11-18 19:15:22,101 INFO WAV file received and saved.
+2023-11-18 19:15:22,501 INFO ASR Result: ['你我们来玩一个文字冒险游戏可以吗']. time used 0.38.
+2023-11-18 19:15:27,507 ERROR HTTPSConnectionPool(host='translation.googleapis.com', port=443): Max retries exceeded with url: /language/translate/v2?target=EN&key=AIzaSyDPKOFt2ZN0Ncg176DzjkoixtmwX18puD4&q=%E4%BD%A0%E6%88%91%E4%BB%AC%E6%9D%A5%E7%8E%A9%E4%B8%80%E4%B8%AA%E6%96%87%E5%AD%97%E5%86%92%E9%99%A9%E6%B8%B8%E6%88%8F%E5%8F%AF%E4%BB%A5%E5%90%97 (Caused by ProxyError('Cannot connect to proxy.', ConnectionResetError(54, 'Connection reset by peer')))
+2023-11-18 19:15:27,508 INFO Something wrong with internet, sending: 
+你等一下，我连接不上大脑了。你是不是网有问题，或者是账号填错了？
+
+2023-11-18 19:15:30,447 INFO VITS Synth Done, time used 2.94
+2023-11-18 19:15:30,957 INFO WAV SENT, size 537647
+2023-11-18 19:15:44,452 INFO WAV file received and saved.
+2023-11-18 19:15:44,797 INFO ASR Result: ['没有啊']. time used 0.32.
+2023-11-18 19:15:55,076 INFO VITS Synth Done, time used 3.53
+2023-11-18 19:15:55,113 INFO Sentiment Engine Infer: 2
+2023-11-18 19:15:55,616 INFO WAV SENT, size 546863
+2023-11-18 19:16:08,697 INFO WAV file received and saved.
+2023-11-18 19:16:09,136 INFO ASR Result: ['我们现在玩一个文字冒险游戏好吗']. time used 0.42.
+2023-11-18 19:16:28,975 INFO VITS Synth Done, time used 6.15
+2023-11-18 19:16:29,086 INFO Sentiment Engine Infer: 0
+2023-11-18 19:16:29,634 INFO WAV SENT, size 1060399
+2023-11-18 19:16:51,017 INFO WAV file received and saved.
+2023-11-18 19:16:51,497 INFO ASR Result: ['我们玩一个去森林里面冒险的游戏你觉得如何']. time used 0.44.
+2023-11-18 19:17:21,971 INFO VITS Synth Done, time used 13.88
+2023-11-18 19:17:22,065 INFO Sentiment Engine Infer: 0
+2023-11-18 19:17:22,900 INFO WAV SENT, size 1540143
+2023-11-18 19:17:44,336 INFO WAV file received and saved.
+2023-11-18 19:17:44,731 INFO ASR Result: ['我已经准备好了']. time used 0.38.
+2023-11-18 19:18:10,553 INFO VITS Synth Done, time used 8.93
+2023-11-18 19:18:10,657 INFO Sentiment Engine Infer: 0
+2023-11-18 19:18:11,342 INFO WAV SENT, size 1571375
+2023-11-18 19:18:43,776 INFO WAV file received and saved.
+2023-11-18 19:18:44,205 INFO ASR Result: ['你是不是还没有说完请继续']. time used 0.40.
+2023-11-18 19:18:45,522 ERROR 400 Bad Request {
+  "error": {
+    "message": "-21 is less than the minimum of 1 - 'max_tokens'",
+    "type": "invalid_request_error",
+    "param": null,
+    "code": null
+  }
+}
+
+2023-11-18 19:18:45,523 INFO API rate limit exceeded, sending: 
+你问的太多了，我们的毛都被你撸秃了，你自己去准备一个API，或者一小时后再来吧。
+
+2023-11-18 19:18:48,835 INFO VITS Synth Done, time used 3.31
+2023-11-18 19:18:49,346 INFO WAV SENT, size 590383
+2023-11-18 19:24:14,842 ERROR [Errno 32] Broken pipe
+2023-11-18 19:24:14,849 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 103, in listen
+    file = self.__receive_file()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 161, in __receive_file
+    self.conn.send(b'sb')
+BrokenPipeError: [Errno 32] Broken pipe
+
+2023-11-18 19:24:14,850 INFO Server is listening on 0.0.0.0:38438...
+2023-11-19 16:33:47,379 INFO Initializing Server...
+2023-11-19 16:33:47,380 INFO Initializing ASR Service...
+2023-11-19 16:33:49,060 INFO Initializing ChatGPT Service...
+2023-11-19 16:33:49,061 INFO chatGPT prompt: paimon35.txt
+2023-11-19 16:33:49,146 INFO machine identifier: 92:73:33:81:a7:50
+2023-11-19 16:33:49,506 INFO you have your own api key. Great.
+2023-11-19 16:33:49,682 INFO API Chatbot initialized.
+2023-11-19 16:33:49,682 INFO Initializing TTS Service for character_paimon...
+2023-11-19 16:33:50,374 INFO Loaded checkpoint 'TTS/models/paimon6k_390k.pth' (iteration 8864)
+2023-11-19 16:33:50,382 INFO Initializing Sentiment Engine...
+2023-11-19 16:33:51,784 INFO Server is listening on 0.0.0.0:38438...
+2023-11-19 16:34:51,579 INFO Connected by ('100.67.8.121', 58508)
+2023-11-19 16:35:18,809 ERROR [Errno 54] Connection reset by peer
+2023-11-19 16:35:18,811 ERROR Traceback (most recent call last):
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 103, in listen
+    file = self.__receive_file()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yth/GitHub/Digital_Life_Server_custom/SocketServer.py", line 159, in __receive_file
+    data = self.conn.recv(1024)
+           ^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 54] Connection reset by peer
+
+2023-11-19 16:35:18,812 INFO Server is listening on 0.0.0.0:38438...
+2023-11-19 16:35:24,069 INFO Connected by ('100.67.8.121', 58530)
+2023-11-19 16:35:28,394 INFO WAV file received and saved.
+2023-11-19 16:35:37,126 INFO ASR Result: ['你好啊']. time used 0.23.
+2023-11-19 16:35:43,058 INFO VITS Synth Done, time used 3.34
+2023-11-19 16:35:43,086 INFO Sentiment Engine Infer: 0
+2023-11-19 16:35:43,592 INFO WAV SENT, size 564271
+2023-11-19 16:35:54,331 INFO WAV file received and saved.
+2023-11-19 16:35:54,653 INFO ASR Result: ['你是谁呀']. time used 0.30.
+2023-11-19 16:35:59,976 INFO VITS Synth Done, time used 2.77
+2023-11-19 16:36:00,001 INFO Sentiment Engine Infer: 0
+2023-11-19 16:36:00,507 INFO WAV SENT, size 527407

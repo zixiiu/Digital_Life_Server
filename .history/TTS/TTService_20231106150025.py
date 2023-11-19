@@ -18,7 +18,7 @@ from TTS.vits.text import text_to_sequence
 import logging
 logging.getLogger().setLevel(logging.INFO)
 logging.basicConfig(level=logging.INFO)
-
+device = torch.device("mps")
 
 def get_text(text, hps):
     text_norm = text_to_sequence(text, hps.data.text_cleaners)
@@ -37,7 +37,7 @@ class TTService():
             len(symbols),
             self.hps.data.filter_length // 2 + 1,
             self.hps.train.segment_size // self.hps.data.hop_length,
-            **self.hps.model).cpu()
+            **self.hps.model).to(device)
         _ = self.net_g.eval()
         _ = utils.load_checkpoint(model, self.net_g, None)
 
@@ -45,8 +45,8 @@ class TTService():
         text = text.replace('~', '！')
         stn_tst = get_text(text, self.hps)
         with torch.no_grad():
-            x_tst = stn_tst.cpu().unsqueeze(0)
-            x_tst_lengths = torch.LongTensor([stn_tst.size(0)]).cpu()
+            x_tst = stn_tst.to(device).unsqueeze(0)
+            x_tst_lengths = torch.LongTensor([stn_tst.size(0)]).to(device)
             audio = self.net_g.infer(x_tst, x_tst_lengths, noise_scale=.667, noise_scale_w=0.2, length_scale=self.speed)[0][
                 0, 0].data.cpu().float().numpy()
         return audio
@@ -56,3 +56,7 @@ class TTService():
         au = self.read(text)
         soundfile.write(filename, au, sr)
         logging.info('VITS Synth Done, time used %.2f' % (time.time() - stime))
+
+
+
+
