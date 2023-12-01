@@ -7,4 +7,4 @@ set CHARACTER=catmaid
 set MODEL=gpt-3.5-turbo
 
 
-.\venv\Scripts\python.exe %SCRIPT_NAME% --chatVer %CHATVER% --stream %STREAM% --character %CHARACTER% --model %MODEL%
+.\venv\Scripts\python.exe %SCRIPT_NAME% --chatVer %CHATVER% --proxy %PROXY% --stream %STREAM% --character %CHARACTER% --model %MODEL%
