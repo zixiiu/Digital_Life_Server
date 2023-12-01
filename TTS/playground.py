@@ -3,7 +3,7 @@ import wave
 import numpy as np
 import pyaudio
 
-from TTS.TTService import TTService
+from .TTService import TTService
 
 config_combo = [
         # ("TTS/models/CyberYunfei3k.json", "TTS/models/yunfei3k_69k.pth"),
@@ -17,12 +17,13 @@ config_combo = [
         # ("TTS/models_unused/yunfeimix.json", "TTS/models_unused/yunfeimix_122k.pth"),
         # ("TTS/models_unused/yunfeineo.json", "TTS/models_unused/yunfeineo_25k.pth"),
         # ("TTS/models/yunfeimix2.json", "TTS/models/yunfeimix2_47k.pth")
-        ("TTS/models_unused/zhongli.json", "TTS/models_unused/zhongli_44k.pth"),
+        ("/root/vits_zh/miko.json", "/root/vits_zh/miko_139k.pth"),
+	#("TTS/models_unused/zhongli.json", "TTS/models_unused/zhongli_44k.pth"),
     ]
 for cfg, model in config_combo:
     a = TTService(cfg, model, 'test', 1)
     p = pyaudio.PyAudio()
-    audio = a.read('旅行者，今天是星期四，能否威我五十')
+    audio = a.read('私のレッスンは会話がうまくなりたい人にオススメです。')
     stream = p.open(format=pyaudio.paFloat32,
                     channels=1,
                     rate=a.hps.data.sampling_rate,
